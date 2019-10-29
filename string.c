@@ -32,6 +32,7 @@ static string String_prepend (string me, string more_text) {
 }
 static string String_first (string me, size_t bytes) {
   if (me == 0) return 0;
+  if (bytes < 1) return 0;
   size_t melen = strlen(me);
   if (bytes >= melen) return String_new(me);
   char *newstr = malloc(bytes+1);
@@ -42,6 +43,7 @@ static string String_first (string me, size_t bytes) {
 }
 static string String_last (string me, size_t bytes) {
   if (me == 0) return 0;
+  if (bytes < 1) return 0;
   size_t melen = strlen(me);
   if (bytes >= melen) return String_new(me);
   char *newstr = malloc(bytes+1);
