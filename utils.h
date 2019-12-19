@@ -1,6 +1,8 @@
 #ifndef _OBJUTILS_H_
 #define _OBJUTILS_H_
 
+// Macros and definitions for immutable states and method-calling-based objects model support.
+
 #define funcptr *const
 #define dataptr const*const
 #define iterptr const*
@@ -11,9 +13,10 @@
 #define object      const struct
 #define class       const struct
 
-#define objptr(CLASS)     struct CLASS dataptr
-#define iterator(CLASS)   struct CLASS iterptr
-#define me(CLASS)         objptr(CLASS) me
+#define objptr(CLASS)       struct CLASS dataptr
+#define iterator(CLASS)     struct CLASS iterptr
+#define me(CLASS)           objptr(CLASS) me
+#define mutable(CLASS,OBJ)  *((iterator(CLASS)*) &OBJ)
 
 #include <stddef.h>
 #include <stdint.h>
