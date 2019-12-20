@@ -3,27 +3,27 @@
 // Macros and definitions for message-passing-based objects
 
 typedef object $Message msg_t;
-typedef object $Object obj_t;
+typedef object $Class class_t;
 typedef object $Type type_t;
 
-typedef const unsigned long $subject;
-typedef bool (funcptr $method) (me($Object), objptr($Message) msg);
+typedef bool (funcptr $method) (me($Class), objptr($Message) msg);
 
 interface $Type {
-  $method _m;
+  $method _handler;
 };
 
-interface $Object {
+interface $Class {
   object $Type _type;
 };
 
 interface $Message {
-  objptr($Object) _obj;
-  $subject _msg;
+  objptr($Class) _return;
+  $method funcptr _subject;
 };
 
-#define subject(m) (($subject)(objptr($Message))(m)->_msg)
-#define dispatcher(obj) (($method)((objptr($Object))(obj))->_type._m)
-#define send(obj,msg) dispatcher(obj)(obj,msg)
-#define send2(obj,msg) ({ mutable($Object,*msg._obj)=obj;dispatcher(obj)(obj,msg); })
+#define is_subject(MSG,MSG_TYPE) ((MSG)->_subject == &(MSG_TYPE))
+#define handler(OBJ) ((OBJ)->_type._handler)
+#define send(OBJ,MSG) handler(OBJ)((objptr($Class))OBJ,(objptr($Message))MSG)
+
+// #define new(CLASS)
 
