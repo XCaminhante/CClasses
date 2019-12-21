@@ -18,16 +18,17 @@
 #define me(CLASS)           objptr(CLASS) me
 #define mutable(CLASS,OBJ)  *((iterator(CLASS)*) &OBJ)
 
+#include <ctype.h>
+#include <fcntl.h>
+#include <stdarg.h>
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
-#include <string.h>
-#include <stdbool.h>
-#include <stdlib.h>
 #include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
-#include <sys/types.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/stat.h>
-#include <fcntl.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 #endif
