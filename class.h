@@ -21,13 +21,8 @@ interface $Message {
   $method funcptr _subject;
 };
 
-#define is_subject(MSG,MSG_TYPE) ((MSG)->_subject == &(MSG_TYPE))
-#define handler_of(OBJ) ((OBJ)->_type._handler)
-#define send(OBJ,MSG) handler_of(OBJ)((objptr($Class))OBJ,(objptr($Message))MSG)
+#define is_subject(MSG,METHOD) ((MSG)->_subject == &(METHOD))
+#define handler(OBJ) ((OBJ)->_type._handler)
+#define send(OBJ,MSG) handler(OBJ)((objptr($Class))OBJ,(objptr($Message))MSG)
 
-#define new(CLASS) CLASS##$Class
-#define type(CLASS) CLASS##$Type
-#define handler(CLASS) CLASS##$Handler
-#define message(CLASS,METHOD) CLASS##$Message$##METHOD
-#define method(CLASS,METHOD) type(CLASS).METHOD
-#define new_message(CLASS,METHOD,...) { ._subject=&(method(CLASS,METHOD)), __VA_ARGS__ } 
+#define new_message(METHOD,...) { ._subject=&(METHOD), __VA_ARGS__ }
