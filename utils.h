@@ -16,7 +16,7 @@
 #define objptr(CLASS)       struct CLASS dataptr
 #define iterator(CLASS)     struct CLASS iterptr
 #define me(CLASS)           objptr(CLASS) me
-#define mutable(CLASS,OBJ)  *((iterator(CLASS)*) &OBJ)
+#define mutable(CLASS,OBJ)  *((CLASS const* *) &OBJ)
 
 #include <ctype.h>
 #include <fcntl.h>
