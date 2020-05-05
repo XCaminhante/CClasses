@@ -1,6 +1,7 @@
 # CClasses
-This is experimental code to explore some ideas associated with object-oriented programming and typing issues.
-The main idea is to achieve this only using C code and some helper macros.
+This is experimental code to explore some ideas associated with object-oriented
+programming and typing issues. The main idea is to achieve this only using C
+code and some helper macros.
 
 Abstractions and concepts I want to implement at the moment are:
 * Immutable objects
@@ -10,6 +11,14 @@ Abstractions and concepts I want to implement at the moment are:
 * Polymorfism
 * Non-fragile binary classes
 * `C++`-like semantic bits, like moving semantics and RAII
+
+A basic idea permeates, supports and makes possible the code of these
+experiments: use the semantics of C structs as nested namespaces and the
+semantics of the C linker to expose and maintain unique symbols for the code.
+For example, it is thanks to unique symbols that message passing can
+differentiate between interfaces and compiled code can transparently operate
+with new interfaces, messages and classes, which were unknown before the
+previous compilation.
 
 Below are explained the two models of objects I'm experimenting with.
 
