@@ -5,9 +5,6 @@
 
 // Macros and definitions for a intensional type-safe message-passing-based object system.
 
-// 
-// Type interface classes delimit delimit the vocabulary of messages of a type.
-
 typedef objptr($Message) msg_t;
 typedef objptr($Class)   class_t;
 typedef objptr($Type)    type_t;
