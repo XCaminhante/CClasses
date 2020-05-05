@@ -69,10 +69,12 @@ size_t st2s = Stack.size(st1);
 Operationally, our objects appear to us as struct pointers with a single
 function pointer. We instantiate "message" structs and use them as an argument
 of that function to get the desired effects. That function returns values
-through the message struct, and by default returns a bool that tells whether the
-function dealt with the message or not. This object pointer is reinterpreted
-within that function as a struct with secret fields, which we shouldn't know
-unless we're modifying or studying the function's source code.
+through the message struct, and returns for the call a bool that tells whether
+the function dealt with the message or not. This design detail allows the call
+to respond synchronously, asynchronously or indirectly (with side effects). This
+object pointer is reinterpreted within that function as a struct with secret
+fields, which we shouldn't know unless we're modifying or studying the
+function's source code.
 
 Semantically, our objects are created by a metaclass, are managed by one or more
 hidden classes, and obey one or more interface contracts by answering its
