@@ -1,7 +1,7 @@
 #ifndef _STACK_CLASS_
 #define _STACK_CLASS_
 
-#include "utils.h"
+#include "basic_objects.h"
 
 interface $Stack {
   object Stack  (funcptr new)     (pointer data, objptr(Stack) next);

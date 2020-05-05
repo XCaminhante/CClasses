@@ -1,7 +1,7 @@
 #ifndef _LISTMAP_CLASS_
 #define _LISTMAP_CLASS_
 
-#include "utils.h"
+#include "basic_objects.h"
 
 interface $ListMap {
   // WARN This function does not prevent the creation of cyclical lists!

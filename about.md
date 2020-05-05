@@ -2,7 +2,7 @@
 This is experimental code to explore some ideas associated with object-oriented programming and typing issues.
 The main idea is to achieve this only using C code and some helper macros.
 
-Abstractions and concepts I want to implementate on C code at the moment are:
+Abstractions and concepts I want to implement at the moment are:
 * Immutable objects
 * Interfaces
 * Namespaces
@@ -14,16 +14,23 @@ Abstractions and concepts I want to implementate on C code at the moment are:
 Below are explained the two models of objects I'm experimenting with.
 
 ## Method-calling-based objects
-This object model is really simple, it requires little code.
-But it has no real encapsulation.
-Another problem is that the internal state of the object is dependent on the interface, instead of depending on the concrete class that generated it at runtime.
+This object model is really simple and requires little code. But it has no real
+encapsulation and has serious restrictions. A relevant problem is that the
+internal state of the object is dependent on the interface, instead of depending
+on the concrete class managing it at runtime.
 
-It consists of an *interface table*, one or more *concrete class tables* and an associated *state table*.
-The interface table defines the methods that the concrete classes will contain.
-The state table contains the private data of the object.
+It consists of an *interface struct*, one or more *concrete class structs* and
+an associated *state struct*. The interface struct contains the signatures of
+the methods the classes will have. The state struct contains the private data of
+the object.
 
-This is an example of a "Stack" interface, a concrete class implementing it and its respective state table.
-The basic macros reside at `utils.h` header file.
+You invoke the methods of the classes ideally passing a pointer to the object as
+the first argument (that's why I created the `me` macro), to obtain the desired
+effect.
+
+This is an example of a naive "Stack" interface, a concrete class implementing
+it and its respective state table. The basic macros reside at `basic_objects.h`
+header file.
 
 ```
 interface $Stack {
@@ -33,9 +40,13 @@ interface $Stack {
   objptr(Stack) (funcptr nth)     (me(Stack), size_t index);
 };
 
-// Methods implementations should appear here...
+// Methods implementations should appear here, like:
+object Stack Stack_new (pointer data, objptr(Stack) next) {
+  // ...
+  return (object Stack){/***/};
+}
 
-// A concrete class table:
+// A concrete class struct:
 class $Stack Stack = {
   Stack_new,
   Stack_destroy,
@@ -43,17 +54,56 @@ class $Stack Stack = {
   Stack_nth
 };
 
-// State table:
+// State struct:
 struct Stack {
   pointer value;
   objptr(Stack) next;
 };
+
+// And you use them like this:
+object Stack st1 = Stack.new(/***/);
+size_t st2s = Stack.size(st1);
 ```
 
-## Intensional type system, message-passing-based objects
-A little more sofisticated and robust model, supporting non-fragile binary interfaces, polymorphic function members, intensional type-safe message passing, and even multiple inheritance.
-You can change the instance internal state representation or add new public function members at your interfaces/classes without breaking existing, compiled code.
-(Of course, this depends on preserving the behaviour of pre-existing function members.)
+## Message-passing-based objects
+Operationally, our objects appear to us as struct pointers with a single
+function pointer. We instantiate "message" structs and use them as an argument
+of that function to get the desired effects. That function returns values
+through the message struct, and by default returns a bool that tells whether the
+function dealt with the message or not. This object pointer is reinterpreted
+within that function as a struct with secret fields, which we shouldn't know
+unless we're modifying or studying the function's source code.
 
-(In preparation)
+Semantically, our objects are created by a metaclass, are managed by one or more
+hidden classes, and obey one or more interface contracts by answering its
+messages. No class can present public methods that are not tied to some
+interface. Classes and objects are opaque: no object can have public fields and
+no class can be exposed without a intermediating metaclass.
+
+This is by design. These operational restrictions force the adoption of good
+programming practices (from my individual point of view) and allow objects and
+classes to be modified and extended without necessarily breaking code that has
+already been compiled. Type interfaces can be extended as long as the order and
+presence of previously existing methods are maintained.
+
+This object system is based on the operation of three types of entities:
+"Type$..." interface classes, "Class$..." metaclasses and "Message$..."
+interfaces. They are respectively represented by the C types `type_t`, `class_t`
+and `msg_t`; and depend upon two basic binary protocols: object memory layout
+protocol and message passing protocol.
+
+### Type
+
+
+### Class
+
+
+### Message
+
+
+### Object memory layout protocol
+
+
+### Message passing protocol
+
 

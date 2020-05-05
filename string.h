@@ -1,7 +1,7 @@
 #ifndef _STRING_CLASS_
 #define _STRING_CLASS_
 
-#include "utils.h"
+#include "basic_objects.h"
 
 interface $String {
   // [ likely valid string `text` -> copy of `text` | 0 ]
