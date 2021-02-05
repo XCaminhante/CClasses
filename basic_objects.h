@@ -3,13 +3,14 @@
 
 #include "utils.h"
 
-// Macros and definitions for immutable states and method-calling-based object model support.
+// Macros and definitions for immutable states and basic object model support.
 
 #define funcptr *const
 #define dataptr const*const
 #define iterptr const*
 #define pointer void dataptr
 #define string  char dataptr
+#define default {0}
 
 #define interface   struct
 #define object      const struct

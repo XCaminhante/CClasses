@@ -1,78 +1,21 @@
 # CClasses
-This is experimental code to explore some ideas associated with object-oriented
-programming and typing issues. The main idea is to achieve this only using C
-code and some helper macros.
+CClasses is an experimental header-only library to explore some ideas about object-oriented programming.
+The concepts studied are performed in the user's code in the form of the application of some code conventions, facilitated by macros.
 
-Abstractions and concepts I want to implement at the moment are:
+Some abstractions I'm interested in implementing with this library include:
 * Immutable objects
-* Interfaces
 * Namespaces
-* Subtyping
-* Polymorfism
-* Non-fragile binary classes
-* `C++`-like semantic bits, like moving semantics and RAII
+* Intensional types
+* Type inheritance
+* Algebraic data structures
+* Polymorphism
+* Classes with non-fragile binary interfaces
+* Emulations of details of operational semantics of C++
 
-A basic idea permeates, supports and makes possible the code of these
-experiments: use the semantics of C structs as nested namespaces and the
-semantics of the C linker to expose and maintain unique symbols for the code.
-For example, it is thanks to unique symbols that message passing can
-differentiate between interfaces and compiled code can transparently operate
-with new interfaces, messages and classes, which were unknown before the
-previous compilation.
+Some details of the exploration involve code that is not considered idiomatic for the C language or depend on specific features of a certain compiler implementation.
 
-Below are explained the two models of objects I'm experimenting with.
-
-## Method-calling-based objects
-This object model is really simple and requires little code. But it has no real
-encapsulation and has serious restrictions. A relevant problem is that the
-internal state of the object is dependent on the interface, instead of depending
-on the concrete class managing it at runtime.
-
-It consists of an *interface struct*, one or more *concrete class structs* and
-an associated *state struct*. The interface struct contains the signatures of
-the methods the classes will have. The state struct contains the private data of
-the object.
-
-You invoke the methods of the classes ideally passing a pointer to the object as
-the first argument (that's why I created the `me` macro), to obtain the desired
-effect.
-
-This is an example of a naive "Stack" interface, a concrete class implementing
-it and its respective state table. The basic macros reside at `basic_objects.h`
-header file.
-
-```
-interface $Stack {
-  object Stack  (funcptr new)     (pointer data, objptr(Stack) next);
-  void          (funcptr destroy) (me(Stack));
-  size_t        (funcptr size)    (me(Stack));
-  objptr(Stack) (funcptr nth)     (me(Stack), size_t index);
-};
-
-// Methods implementations should appear here, like:
-object Stack Stack_new (pointer data, objptr(Stack) next) {
-  // ...
-  return (object Stack){/***/};
-}
-
-// A concrete class struct:
-class $Stack Stack = {
-  Stack_new,
-  Stack_destroy,
-  Stack_size,
-  Stack_nth
-};
-
-// State struct:
-struct Stack {
-  pointer value;
-  objptr(Stack) next;
-};
-
-// And you use them like this:
-object Stack st1 = Stack.new(/***/);
-size_t st2s = Stack.size(st1);
-```
+C Structs can be used to create name spaces and avoid conflicts between symbols.
+By defining a struct and immediately creating a static const variable with the same name as the struct, we can see the opportunities to set a default initialization for the struct or to use the variable as a single, encapsulated symbol space to differentiate a type or runtime messages.
 
 ## Message-passing-based objects
 Operationally, our objects appear to us as struct pointers with a single

@@ -6,17 +6,39 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="knoppix.20191219151205.1"><vh>@settings</vh>
-<v t="knoppix.20191219151205.2"><vh>@data abbreviations</vh></v>
-<v t="knoppix.20191219151205.3"><vh>nodeActions</vh>
-<v t="knoppix.20191219151205.4"><vh>@run*</vh></v>
-<v t="knoppix.20191220134024.1"><vh>@files *.[hc]</vh></v>
+<v t="caminhante.20200313155940.1"><vh>@settings</vh>
+<v t="caminhante.20200618180759.1"><vh>@command terminal-here @key=Alt-T</vh></v>
+<v t="caminhante.20200619162742.1"><vh>@command open-url-here @key=Ctrl-U</vh></v>
+<v t="caminhante.20200313155940.99"><vh>nodeActions</vh>
+<v t="caminhante.20200604232050.1"><vh>@cmd *</vh></v>
+<v t="caminhante.20200619161501.1"><vh>@download *</vh></v>
+<v t="caminhante.20200619155412.1"><vh>@duck *</vh></v>
+<v t="caminhante.20200927204806.1"><vh>@gcc|@gcc .* [X]</vh></v>
+<v t="caminhante.20200808174417.1"><vh>@js|@js .* [X]</vh></v>
+<v t="caminhante.20200912185313.1"><vh>@lua|@lua .* [X]</vh></v>
+<v t="caminhante.20200619213937.1"><vh>@node|@node .* [X]</vh></v>
+<v t="caminhante.20200618203115.1"><vh>@run|@run .* [X]</vh></v>
+<v t="caminhante.20200619154823.1"><vh>@web *</vh></v>
 </v>
 </v>
 <v t="knoppix.20191029161928.1"><vh>Classes C</vh>
 <v t="knoppix.20191029161928.2"><vh>/Arquivos</vh>
-<v t="knoppix.20191220162548.1"><vh>@auto t.s</vh></v>
 <v t="knoppix.20191219150641.1"><vh>@auto-md about.md</vh></v>
+<v t="caminhante.20200708171340.1"><vh>@auto-md sobre.md</vh></v>
+<v t="knoppix.20191029161928.49"><vh>@clean basic_objects.h</vh></v>
+<v t="caminhante.20200306125753.1"><vh>@clean utils.h</vh></v>
+<v t="knoppix.20191220133414.1"><vh>Dynamic Experiment</vh>
+<v t="caminhante.20200718232148.1"><vh>Example</vh></v>
+<v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
+<v t="knoppix.20191220133433.1"><vh>Implementations</vh></v>
+</v>
+<v t="knoppix.20191219184003.1"><vh>@clean dynamic_objects.h</vh>
+<v t="caminhante.20200402212047.1"><vh>Struct-defining macros</vh></v>
+<v t="caminhante.20200402213256.1"><vh>Type class macros</vh></v>
+<v t="caminhante.20200402212137.1"><vh>Message macros</vh></v>
+<v t="caminhante.20200402212018.1"><vh>Handler (metaclass implementation) macros</vh></v>
+<v t="caminhante.20200403195702.1"><vh>Metaclass (definition) macros</vh></v>
+</v>
 <v t="knoppix.20191029161928.11"><vh>@clean listmap.c</vh>
 <v t="knoppix.20191029161928.62"><vh>ListMap implementation</vh>
 <v t="knoppix.20191029161928.63"><vh>bool            same_key (objptr(ListMap) listmap, string key)</vh></v>
@@ -64,17 +86,7 @@
 <v t="knoppix.20191029161928.47"><vh>@clean string.h</vh>
 <v t="knoppix.20191029161928.85"><vh>String interface</vh></v>
 </v>
-<v t="knoppix.20191029161928.49"><vh>@clean basic_objects.h</vh></v>
-<v t="knoppix.20191219184003.1"><vh>@clean dynamic_objects.h</vh>
-<v t="caminhante.20200402212006.1"><vh>Dynamic object macros</vh>
-<v t="caminhante.20200402212047.1"><vh>Struct-defining macros</vh></v>
-<v t="caminhante.20200402213256.1"><vh>Type macros</vh></v>
-<v t="caminhante.20200402212137.1"><vh>Message macros</vh></v>
-<v t="caminhante.20200402212018.1"><vh>Handler macros</vh></v>
-<v t="caminhante.20200403195702.1"><vh>Class macros</vh></v>
-</v>
-</v>
-<v t="caminhante.20200306125753.1"><vh>@clean utils.h</vh></v>
+<v t="caminhante.20200708171513.1"><vh>@cmd git status</vh></v>
 <v t="knoppix.20191029161928.3"><vh>clean file.c</vh>
 <v t="knoppix.20191029161928.54"><vh>FilePath implementation</vh>
 <v t="knoppix.20191029161928.55"><vh>object FilePath new (string base_path, string filename, string extension)</vh></v>
@@ -87,10 +99,7 @@
 <v t="knoppix.20191029161928.59"><vh>FilePath interface</vh></v>
 </v>
 </v>
-<v t="knoppix.20191220133414.1"><vh>Experimental message-passing dynamic object </vh>
-<v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
-<v t="knoppix.20191220133433.1"><vh>Implementations</vh></v>
-</v>
+<v t="knoppix.20191220133414.1"></v>
 <v t="knoppix.20191029161928.50"><vh>File</vh>
 <v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
 <v t="knoppix.20191029161928.52"><vh>File implementation</vh></v>
@@ -114,9 +123,15 @@
 <v t="knoppix.20191029161928.97"><vh>String tests</vh></v>
 </v>
 </v>
+<v t="caminhante.20200718124944.1"><vh>Trabalhando agora</vh>
+<v t="knoppix.20191029161928.49"></v>
+<v t="knoppix.20191219184003.1"></v>
+</v>
 </vnodes>
 <tnodes>
-<t tx="caminhante.20200306125753.1">// Utilities
+<t tx="caminhante.20200306125753.1">@
+Utilities
+@c
 
 #include &lt;ctype.h&gt;
 #include &lt;fcntl.h&gt;
@@ -130,15 +145,16 @@
 #include &lt;sys/stat.h&gt;
 #include &lt;sys/types.h&gt;
 #include &lt;unistd.h&gt;</t>
-<t tx="caminhante.20200402212006.1"></t>
-<t tx="caminhante.20200402212018.1">#define handler(NAME) \
+<t tx="caminhante.20200313155940.1"></t>
+<t tx="caminhante.20200313155940.99">@language python
+</t>
+<t tx="caminhante.20200402212018.1">// Handler (metaclass implementation) macros
+
+#define handler(NAME) \
   Handler_##NAME
 
 #define define_handler(CLASS) \
   bool handler(CLASS) (class_t me, msg_t msg)
-
-#define declare_handler(CLASS) \
-  define_handler(CLASS)
 
 #define is_method(TYPE,METHOD) \
   (msg-&gt;_subject == method_id(TYPE,METHOD))
@@ -146,19 +162,15 @@
 #define my_message(TYPE,METHOD) \
   ((objptr(message(TYPE,METHOD)))msg)
 
-#define my_object(CLASS) \
-  ((objptr(class_private_face(CLASS)))me)
-</t>
-<t tx="caminhante.20200402212047.1">\*
-Macros for simplified struct defining
-You need to define a macro which will receive another macro as argument, passing its fields.
-Example:
 
-  #define $test(_) \
-    _(long,a,1) \
-    _(long,b,2) \
-  define_struct3(test)
-*\
+</t>
+<t tx="caminhante.20200402212047.1">// Macros for simplified struct defining
+// Example:
+//
+// #define $test(_) \`
+//   _(long,a,1)    \`
+//   _(long,b,2)    \`
+// define_struct3(test);
 
 #define ref(NAME) \
   $##NAME
@@ -181,13 +193,16 @@ Example:
   struct NAME { \
     ref(NAME)(struct_items2) \
   }
+
 </t>
-<t tx="caminhante.20200402212137.1">#define message(TYPE,METHOD) \
+<t tx="caminhante.20200402212137.1">// Message macros
+
+#define message(TYPE,METHOD) \
   $Message$##TYPE##$##METHOD
 
 #define new_message(TYPE,METHOD,ARGS...) \
   (object message(TYPE,METHOD)) { \
-    ._subject=&amp;(method_id(TYPE,METHOD)), \
+    ._subject=method_id(TYPE,METHOD), \
     ## ARGS }
 
 #define define_message(TYPE,METHOD) \
@@ -201,10 +216,10 @@ Example:
 
 #define send(OBJ,MSG) \
   my_handler(OBJ)(OBJ, MSG)
+
 </t>
-<t tx="caminhante.20200402213256.1">@
-Type classes 
-@c
+<t tx="caminhante.20200402213256.1">// Type classes macros
+
 #define type_items(NAME) \
   $method NAME;
 
@@ -215,43 +230,301 @@ Type classes
   $##TYPE##$##NAME
 
 #define method_id(TYPE,METHOD) \
-  type(TYPE).METHOD
+  &amp;(type(TYPE).METHOD)
 
 #define define_type(NAME) \
   class { \
     $method _handler; \
-    ref(NAME)(type_items) \
-  } type(NAME) = {0}</t>
-<t tx="caminhante.20200403195702.1">#define class_public_face(NAME) \
+    type(NAME)(type_items) \
+  } type(NAME) = default
+
+</t>
+<t tx="caminhante.20200403195702.1">// Metaclass (definition) macros
+
+#define class_face(NAME) \
   $Class$##NAME
 
-#define class_private_face(NAME) \
-  $Private$##NAME
-
 #define class_handler(CLASS) \
-  class_public_face(CLASS))._type
+  class_face(CLASS)._type
 
 #define declare_class(CLASS) \
-  declare_handler(CLASS); \
-  class class_public_face(CLASS) { \
+  define_handler(CLASS); \
+  class class_face(CLASS) { \
     object $Type _type; \
-  } class_public_face(CLASS) = { {handler(CLASS)} }
+  } class_face(CLASS) = { {handler(CLASS)} }
 
-#define allocate_object(CLASS) \
-  allocate(object class_private_face(CLASS))
+// #define allocate_object(CLASS)
+  // allocate(object class_private_face(CLASS))
 
-#define define_class(CLASS) \
-  interface class_private_face(CLASS) { \
-    object $Type _type; \
-    ref(CLASS)(struct_items2) \
-  }
+// #define construct_object(OBJ,CLASS,FIELDS...)
+  // memcpy((void*)OBJ,
+    // &amp;(object class_private_face(CLASS)) {
+      // ._type=class_handler(CLASS),
+      // ## FIELDS },
+    // sizeof(object class_private_face(CLASS)))
 
-#define construct_object(OBJ,CLASS,FIELDS...) \
-  memcpy((void*)OBJ, \
-    &amp;(object class_private_face(CLASS)) { \
-      ._type=class_handler(CLASS), \
-      ## FIELDS }, \
-    sizeof(object class_private_face(CLASS)))
+</t>
+<t tx="caminhante.20200604232050.1">import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+if c.isChanged(): c.save()
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+command = ''.join(c.p.h.split('@cmd ')[1:])
+command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | bash\n"+command+'\nEOFEOFEOFEOFEOFEOF'
+g.es(c.p.h)
+c.p.b += execute(command)
+
+c.save()
+</t>
+<t tx="caminhante.20200618180759.1">@language python
+import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+if c.isChanged(): c.save()
+path = c.getNodePath(c.p)
+
+execute('terminator --working-directory="'+path+'" --new-tab')
+</t>
+<t tx="caminhante.20200618203115.1">@language python
+import subprocess
+
+# def getpath (p):
+    # dict = c.scanAllDirectives(p)
+    # d = dict.get("path")
+    # if p.isAnyAtFileNode():
+        # filename = p.anyAtFileNodeName()
+        # filename = g.os_path_join(d,filename)
+        # if filename:
+            # d = g.os_path_dirname(filename)
+    # if d is None:
+        # return ""
+    # else:
+        # return g.os_path_normpath(d)
+
+# if c.isChanged(): c.save()
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+w = c.frame.body.wrapper
+s1,s2 = w.getSelectionRange()
+
+if s1 == s2:
+    code = c.p.b
+else:
+    linebr = c.p.b.find('\n',s2)
+    if linebr == -1: linebr = len(c.p.b)
+    code = c.p.b[s1:s2]
+
+g.es(c.p.h)
+
+command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | bash\n"+code+'\nEOFEOFEOFEOFEOFEOF'
+
+# if s1 == s2:
+    # c.p.b += '\n' + execute(command)
+# else:
+    # c.p.b = c.p.b[0:linebr] + '\n' + execute(command) + c.p.b[linebr:]
+
+cpc = c.p.copy()
+novoNo = cpc.insertAsLastChild()
+novoNo.h = c.p.h
+novoNo.b = execute(command)
+c.redraw()
+
+c.save()
+w.setSelectionRange(s1,s2)
+</t>
+<t tx="caminhante.20200619154823.1">import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+if c.isChanged(): c.save()
+
+url = ''.join(c.p.h.split('@web ')[1:])
+command = 'lynx -image_links -dump "'+url+'"'
+g.es(c.p.h)
+c.p.b = execute(command)
+
+c.save()
+</t>
+<t tx="caminhante.20200619155412.1">import subprocess
+import urllib.parse
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+if c.isChanged(): c.save()
+
+search = ''.join(c.p.h.split('@duck ')[1:])
+searchenc = urllib.parse.quote(search)
+command = 'lynx -dump "https://duckduckgo.com/html/?q='+searchenc+'&amp;t=seamonkey"'
+g.es(c.p.h)
+c.p.b = execute(command)
+
+c.save()
+</t>
+<t tx="caminhante.20200619161501.1">import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+if c.isChanged(): c.save()
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+url = ''.join(c.p.h.split('@download ')[1:])
+command = 'wget --no-config --continue --no-verbose --adjust-extension --tries=3 --content-on-error "'+url+'"'
+g.es(c.p.h)
+c.p.b += execute(command)
+
+c.save()
+</t>
+<t tx="caminhante.20200619162742.1">@language python
+# if c.isChanged(): c.save()
+
+w = c.frame.body.wrapper
+b = c.p.b
+i,j = w.getSelectionRange()
+
+selecao = b[i:j]
+
+cpc = c.p.copy()
+novoNo = cpc.insertAsLastChild()
+c.setHeadString(novoNo, '@web '+selecao)
+c.selectPosition(novoNo)
+c.redraw()
+</t>
+<t tx="caminhante.20200619213937.1">import subprocess
+import re
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+code = re.sub(r'^#|\n+#', '\n///', g.getScript(c,c.p))
+
+g.es(c.p.h)
+
+command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | node\n"+code+'\nEOFEOFEOFEOFEOFEOF'
+
+c.p.b += '\n' + execute(command)
+</t>
+<t tx="caminhante.20200708171513.1">On branch devel
+Your branch is up-to-date with 'origin/devel'.
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+	modified:   cclasses.leo
+	modified:   dynamic_objects.h
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+	sobre.md
+	t
+	t.c
+
+no changes added to commit (use "git add" and/or "git commit -a")
+</t>
+<t tx="caminhante.20200718124944.1">@language c
+@tabwidth -2</t>
+<t tx="caminhante.20200718232148.1">// type geometry interface {
+    // area() float64
+    // perim() float64
+// }
+
+// type rect struct {
+    // width, height float64
+// }
+
+// func (r rect) area() float64 {
+    // return r.width * r.height
+// }
+
+// func (r rect) perim() float64 {
+    // return 2*r.width + 2*r.height
+// }
+
+
+// type circle struct {
+    // radius float64
+// }
+
+// func (c circle) area() float64 {
+    // return math.Pi * c.radius * c.radius
+// }
+
+// func (c circle) perim() float64 {
+    // return 2 * math.Pi * c.radius
+// }
+</t>
+<t tx="caminhante.20200808174417.1">import subprocess
+import re
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+code = re.sub(r'^#|\n+#', '\n///', g.getScript(c,c.p))
+
+g.es(c.p.h)
+
+command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | js\n"+code+'\nEOFEOFEOFEOFEOFEOF'
+
+c.p.b += '\n' + execute(command)
+</t>
+<t tx="caminhante.20200912185313.1">import subprocess
+import re
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+code = re.sub(r'^#|\n+#', '\n---', g.getScript(c,c.p))
+
+g.es(c.p.h)
+
+command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | lua\n"+code+'\nEOFEOFEOFEOFEOFEOF'
+
+c.p.b += '\n' + execute(command)
+</t>
+<t tx="caminhante.20200927204806.1">import subprocess
+import re
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+code = re.sub(r'^#@|\n+#@', '\n///', g.getScript(c,c.p))
+args = ''.join(c.p.h.split('@gcc ')[1:])
+
+g.es(c.p.h)
+
+command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | gcc -xc - -Wall -Werror -std=gnu11 -c -o /dev/null \n"+code+'\nEOFEOFEOFEOFEOFEOF'
+
+c.p.b += '\n' + execute(command)
+# g.es(command)
 </t>
 <t tx="knoppix.20191029161928.1">@language c
 @tabwidth -2</t>
@@ -298,13 +571,16 @@ Type classes
 
 #include "utils.h"
 
-// Macros and definitions for immutable states and method-calling-based object model support.
+@
+Macros and definitions for immutable states and basic object model support.
+@c
 
 #define funcptr *const
 #define dataptr const*const
 #define iterptr const*
 #define pointer void dataptr
 #define string  char dataptr
+#define default {0}
 
 #define interface   struct
 #define object      const struct
@@ -786,46 +1062,14 @@ class $String String = {
   puts(d);
 }
 </t>
-<t tx="knoppix.20191219151205.1"></t>
-<t tx="knoppix.20191219151205.2"></t>
-<t tx="knoppix.20191219151205.3"></t>
-<t tx="knoppix.20191219151205.4">@language python
-import subprocess,os
-
-def getpath (p):
-    dict = c.scanAllDirectives(p)
-    d = dict.get("path")
-    if p.isAnyAtFileNode():
-        filename = p.anyAtFileNodeName()
-        filename = g.os_path_join(d,filename)
-        if filename:
-            d = g.os_path_dirname(filename)
-    if d is None:
-        return ""
-    else:
-        return g.os_path_normpath(d)
-
-def execute (cmd):
-    # return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE)
-    return subprocess.check_output(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT)
-
-if c.isChanged(): c.save()
-path = c.getNodePath(pClicked)
-# path = getpath(c.p)
-os.chdir(path)
-
-command = c.p.b
-cmdname = c.p.h
-g.es('---- '+cmdname+' ----')
-g.es(execute(command))
-g.es('---- end ----')
-</t>
 <t tx="knoppix.20191219184003.1">#ifndef _DYNAMOBJS_H_
 #define _DYNAMOBJS_H_
 
 #include "basic_objects.h"
 
-// Macros and definitions for a intensional type-safe message-passing-based object system.
+@
+Macros and definitions for a intensional type-safe message-passing-based object system.
+@c
 
 typedef objptr($Message) msg_t;
 typedef objptr($Class)   class_t;
@@ -836,71 +1080,45 @@ typedef bool (funcptr $method) (class_t me, msg_t msg);
 interface $Type {
   $method _handler;
 };
-
 interface $Class {
   object $Type _type;
 };
-
 interface $Message {
   $method _subject;
   pointer _return;
 };
 
 @others
-
-#endif</t>
-<t tx="knoppix.20191220133414.1"></t>
-<t tx="knoppix.20191220133429.1">#define $Animal(_) \
-  _(new) \
-  _(walk) \
-  _(talk)
-define_type(Animal);
-
-#define $Animal$new(_) \
-  _(string,name)
-define_message(Animal,new);
-
-#define $Animal$walk(_) \
-  _(long,steps)
-define_message(Animal,walk);
-
-#define $Animal$talk(_)
-define_message(Animal,talk);</t>
-<t tx="knoppix.20191220133433.1">declare_handler(Cat);
-
-class $Class$Cat {
-  object $Type _type;
-  string name;
-} $Class$Cat = { {handler(Cat)}, 0 };
-
-define_handler(Cat) {
-  if_is_method(Animal,walk) {
-    string name = my_object(Cat)-&gt;name;
-    long steps = my_message(Animal,walk)-&gt;steps;
-    printf("Cat %s walks %ld steps\n",name,steps);
-    return true;
-  }
-  return false;
-}
+#endif
 </t>
-<t tx="knoppix.20191220134024.1">@language python
-import subprocess,os
+<t tx="knoppix.20191220133414.1"></t>
+<t tx="knoppix.20191220133429.1">#define $Type$Long(_) \
+  _(value)
+define_type(Long);
 
-def execute (cmd):
-    return subprocess.check_output(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT)
+#define $Type$Geometry(_) \
+  _(area) \
+  _(perim)
+define_type(Geometry);
 
-if c.isChanged(): c.save()
-path = c.getNodePath(pClicked)
-os.chdir(path)
+#define $Geometry$area(_)
+define_message(Geometry,area);
 
-filename = ' '.join(c.p.h.split(' ')[1:])
-output = filename.split('.c')[0]
-cflags = '-std=gnu99 -Wall -Werror -Wfatal-errors -D_GNU_SOURCE -O1'
-command = 'gcc '+cflags+' "'+filename+'" -c -o /dev/null;true'
+#define $Geometry$perim(_)
+define_message(Geometry,perim);
+</t>
+<t tx="knoppix.20191220133433.1">declare_class(Long);
 
-g.es('---- compiling "'+filename+'" ----')
-g.es(execute(command))
-g.es('---- end ----')
+define_handler(Long) {
+  mutable(long,msg-&gt;_return) = (void*)1;
+  return true;
+}
+
+declare_class(Rect);
+
+define_handler(Rect) {
+  return true;
+}
 </t>
 </tnodes>
 </leo_file>
