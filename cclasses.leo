@@ -26,18 +26,11 @@
 <v t="knoppix.20191219150641.1"><vh>@auto-md about.md</vh></v>
 <v t="caminhante.20200708171340.1"><vh>@auto-md sobre.md</vh></v>
 <v t="knoppix.20191029161928.49"><vh>@clean basic_objects.h</vh></v>
-<v t="caminhante.20200306125753.1"><vh>@clean utils.h</vh></v>
-<v t="knoppix.20191220133414.1"><vh>Dynamic Experiment</vh>
-<v t="caminhante.20200718232148.1"><vh>Example</vh></v>
-<v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
-<v t="knoppix.20191220133433.1"><vh>Implementations</vh></v>
-</v>
 <v t="knoppix.20191219184003.1"><vh>@clean dynamic_objects.h</vh>
 <v t="caminhante.20200402212047.1"><vh>Struct-defining macros</vh></v>
 <v t="caminhante.20200402213256.1"><vh>Type class macros</vh></v>
 <v t="caminhante.20200402212137.1"><vh>Message macros</vh></v>
-<v t="caminhante.20200402212018.1"><vh>Handler (metaclass implementation) macros</vh></v>
-<v t="caminhante.20200403195702.1"><vh>Metaclass (definition) macros</vh></v>
+<v t="caminhante.20200402212018.1"><vh>Metaclass macros</vh></v>
 </v>
 <v t="knoppix.20191029161928.11"><vh>@clean listmap.c</vh>
 <v t="knoppix.20191029161928.62"><vh>ListMap implementation</vh>
@@ -86,26 +79,26 @@
 <v t="knoppix.20191029161928.47"><vh>@clean string.h</vh>
 <v t="knoppix.20191029161928.85"><vh>String interface</vh></v>
 </v>
-<v t="caminhante.20200708171513.1"><vh>@cmd git status</vh></v>
-<v t="knoppix.20191029161928.3"><vh>clean file.c</vh>
+<v t="caminhante.20210206083301.1"><vh>@clean t.c</vh>
+<v t="knoppix.20191220133414.1"><vh>@gcc Dynamic Example</vh>
+<v t="caminhante.20200718232148.1"><vh>Example</vh></v>
+<v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
+<v t="knoppix.20191220133433.1"><vh>Implementations</vh></v>
+</v>
+</v>
+<v t="caminhante.20200306125753.1"><vh>@clean utils.h</vh></v>
+</v>
+<v t="knoppix.20191029161928.50"><vh>File</vh>
+<v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
+<v t="knoppix.20191029161928.52"><vh>File implementation</vh></v>
+<v t="knoppix.20191029161928.53"><vh>File tests</vh></v>
 <v t="knoppix.20191029161928.54"><vh>FilePath implementation</vh>
 <v t="knoppix.20191029161928.55"><vh>object FilePath new (string base_path, string filename, string extension)</vh></v>
 <v t="knoppix.20191029161928.56"><vh>void            destroy (me(FilePath))</vh></v>
 <v t="knoppix.20191029161928.57"><vh>string          complete_path (me(FilePath))</vh></v>
 <v t="knoppix.20191029161928.58"><vh>object FilePath with_extension (me(FilePath), string new_extension)</vh></v>
 </v>
-</v>
-<v t="knoppix.20191029161928.9"><vh>clean file.h</vh>
 <v t="knoppix.20191029161928.59"><vh>FilePath interface</vh></v>
-</v>
-</v>
-<v t="knoppix.20191220133414.1"></v>
-<v t="knoppix.20191029161928.50"><vh>File</vh>
-<v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
-<v t="knoppix.20191029161928.52"><vh>File implementation</vh></v>
-<v t="knoppix.20191029161928.53"><vh>File tests</vh></v>
-<v t="knoppix.20191029161928.54"></v>
-<v t="knoppix.20191029161928.59"></v>
 </v>
 <v t="knoppix.20191029161928.60"><vh>ListMap</vh>
 <v t="knoppix.20191029161928.61"></v>
@@ -122,10 +115,6 @@
 <v t="knoppix.20191029161928.86"></v>
 <v t="knoppix.20191029161928.97"><vh>String tests</vh></v>
 </v>
-</v>
-<v t="caminhante.20200718124944.1"><vh>Trabalhando agora</vh>
-<v t="knoppix.20191029161928.49"></v>
-<v t="knoppix.20191219184003.1"></v>
 </v>
 </vnodes>
 <tnodes>
@@ -148,7 +137,7 @@ Utilities
 <t tx="caminhante.20200313155940.1"></t>
 <t tx="caminhante.20200313155940.99">@language python
 </t>
-<t tx="caminhante.20200402212018.1">// Handler (metaclass implementation) macros
+<t tx="caminhante.20200402212018.1">// Metaclass macros
 
 #define handler(NAME) \
   Handler_##NAME
@@ -159,10 +148,17 @@ Utilities
 #define is_method(TYPE,METHOD) \
   (msg-&gt;_subject == method_id(TYPE,METHOD))
 
-#define my_message(TYPE,METHOD) \
+#define querying_type(TYPE) \
+  (msg-&gt;_subject == type_id(TYPE))
+
+#define message_of(TYPE,METHOD) \
   ((objptr(message(TYPE,METHOD)))msg)
 
+#define new(CLASS) \
+  { {handler(CLASS)}, 0 }
 
+#define implements(CLASS,TYPE) \
+  handler(CLASS)(0,&amp;(object $Message){type_id(TYPE),0})
 </t>
 <t tx="caminhante.20200402212047.1">// Macros for simplified struct defining
 // Example:
@@ -198,10 +194,10 @@ Utilities
 <t tx="caminhante.20200402212137.1">// Message macros
 
 #define message(TYPE,METHOD) \
-  $Message$##TYPE##$##METHOD
+  Message$##TYPE##$##METHOD
 
 #define new_message(TYPE,METHOD,ARGS...) \
-  (object message(TYPE,METHOD)) { \
+  (msg_t)&amp;(object message(TYPE,METHOD)) { \
     ._subject=method_id(TYPE,METHOD), \
     ## ARGS }
 
@@ -212,10 +208,10 @@ Utilities
     method_ref(TYPE,METHOD)(struct_items2) }
 
 #define my_handler(OBJ) \
-  (OBJ-&gt;_type._handler)
+  (OBJ._type._handler)
 
 #define send(OBJ,MSG) \
-  my_handler(OBJ)(OBJ, MSG)
+  my_handler(OBJ)(&amp;OBJ, MSG)
 
 </t>
 <t tx="caminhante.20200402213256.1">// Type classes macros
@@ -224,44 +220,22 @@ Utilities
   $method NAME;
 
 #define type(NAME) \
-  $Type$##NAME
+  Type$##NAME
 
 #define method_ref(TYPE,NAME) \
-  $##TYPE##$##NAME
+  TYPE##$##NAME
 
 #define method_id(TYPE,METHOD) \
-  &amp;(type(TYPE).METHOD)
+  ($method)&amp;(type(TYPE).METHOD)
+
+#define type_id(TYPE) \
+  ($method)&amp;(type(TYPE)._handler)
 
 #define define_type(NAME) \
   class { \
     $method _handler; \
     type(NAME)(type_items) \
   } type(NAME) = default
-
-</t>
-<t tx="caminhante.20200403195702.1">// Metaclass (definition) macros
-
-#define class_face(NAME) \
-  $Class$##NAME
-
-#define class_handler(CLASS) \
-  class_face(CLASS)._type
-
-#define declare_class(CLASS) \
-  define_handler(CLASS); \
-  class class_face(CLASS) { \
-    object $Type _type; \
-  } class_face(CLASS) = { {handler(CLASS)} }
-
-// #define allocate_object(CLASS)
-  // allocate(object class_private_face(CLASS))
-
-// #define construct_object(OBJ,CLASS,FIELDS...)
-  // memcpy((void*)OBJ,
-    // &amp;(object class_private_face(CLASS)) {
-      // ._type=class_handler(CLASS),
-      // ## FIELDS },
-    // sizeof(object class_private_face(CLASS)))
 
 </t>
 <t tx="caminhante.20200604232050.1">import subprocess
@@ -423,26 +397,6 @@ command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | node\n"+code+'\nEOFEOFEOFEOFEOFEOF
 
 c.p.b += '\n' + execute(command)
 </t>
-<t tx="caminhante.20200708171513.1">On branch devel
-Your branch is up-to-date with 'origin/devel'.
-Changes not staged for commit:
-  (use "git add &lt;file&gt;..." to update what will be committed)
-  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
-
-	modified:   cclasses.leo
-	modified:   dynamic_objects.h
-
-Untracked files:
-  (use "git add &lt;file&gt;..." to include in what will be committed)
-
-	sobre.md
-	t
-	t.c
-
-no changes added to commit (use "git add" and/or "git commit -a")
-</t>
-<t tx="caminhante.20200718124944.1">@language c
-@tabwidth -2</t>
 <t tx="caminhante.20200718232148.1">// type geometry interface {
     // area() float64
     // perim() float64
@@ -526,6 +480,15 @@ command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | gcc -xc - -Wall -Werror -std=gnu11
 c.p.b += '\n' + execute(command)
 # g.es(command)
 </t>
+<t tx="caminhante.20210206083301.1">@others
+int main () {
+  object $Class a = new(Rect);
+  send(a, new_message(Rect,new, .width=2, .height=3));
+  double b = 0;
+  send(a, new_message(Geometry,area, ._return=&amp;b));
+  printf("%g\n", b);
+  return 0;
+}</t>
 <t tx="knoppix.20191029161928.1">@language c
 @tabwidth -2</t>
 <t tx="knoppix.20191029161928.11">#include "listmap.h"
@@ -541,10 +504,6 @@ c.p.b += '\n' + execute(command)
 
 #endif</t>
 <t tx="knoppix.20191029161928.27">#include "stack.h"
-
-@others</t>
-<t tx="knoppix.20191029161928.3">#include "file.h"
-#include "string.h"
 
 @others</t>
 <t tx="knoppix.20191029161928.33">#ifndef _STACK_CLASS_
@@ -972,14 +931,6 @@ class $String String = {
   return strlen(me);
 }
 </t>
-<t tx="knoppix.20191029161928.9">#ifndef _FILE_CLASS_
-#define _FILE_CLASS_
-
-#include "basic_objects.h"
-
-@others
-
-#endif</t>
 <t tx="knoppix.20191029161928.90">static string String_append (string me, string more_text) {
   if (me == 0) return 0;
   if (more_text == 0) return 0;
@@ -1067,9 +1018,7 @@ class $String String = {
 
 #include "basic_objects.h"
 
-@
-Macros and definitions for a intensional type-safe message-passing-based object system.
-@c
+// Macros and definitions for a intensional type-safe message-passing-based object system.
 
 typedef objptr($Message) msg_t;
 typedef objptr($Class)   class_t;
@@ -1082,6 +1031,7 @@ interface $Type {
 };
 interface $Class {
   object $Type _type;
+  pointer _obj;
 };
 interface $Message {
   $method _subject;
@@ -1091,33 +1041,67 @@ interface $Message {
 @others
 #endif
 </t>
-<t tx="knoppix.20191220133414.1"></t>
-<t tx="knoppix.20191220133429.1">#define $Type$Long(_) \
-  _(value)
-define_type(Long);
-
-#define $Type$Geometry(_) \
+<t tx="knoppix.20191220133414.1">#include "dynamic_objects.h"
+@others</t>
+<t tx="knoppix.20191220133429.1">#define Type$Geometry(_) \
   _(area) \
   _(perim)
 define_type(Geometry);
 
-#define $Geometry$area(_)
+#define Geometry$area(_)
 define_message(Geometry,area);
 
-#define $Geometry$perim(_)
+#define Geometry$perim(_)
 define_message(Geometry,perim);
-</t>
-<t tx="knoppix.20191220133433.1">declare_class(Long);
 
-define_handler(Long) {
-  mutable(long,msg-&gt;_return) = (void*)1;
-  return true;
-}
+//
 
-declare_class(Rect);
+#define Type$Rect(_) \
+  _(new)
+define_type(Rect);
+
+#define Rect$new(_) \
+  _(double,width) \
+  _(double,height)
+define_message(Rect,new);
+
+//
+
+#define Type$Circle(_) \
+  _(new)
+define_type(Circle);
+
+#define Circle$new(_) \
+  _(double,radius)
+define_message(Circle,new);</t>
+<t tx="knoppix.20191220133433.1">struct rect {
+  long w;
+  long h;
+};
 
 define_handler(Rect) {
-  return true;
+  if (querying_type(Geometry)) { return true; }
+  if (querying_type(Rect)) { return true; }
+  if (is_method(Rect,new)) {
+    struct rect *r = allocate(struct rect);
+    r-&gt;w = message_of(Rect,new)-&gt;width;
+    r-&gt;h = message_of(Rect,new)-&gt;height;
+    mutable(struct rect,me-&gt;_obj) = r;
+    return true;
+  }
+  if (me-&gt;_obj != NULL) {
+    double *ret = (double*)msg-&gt;_return;
+    objptr(rect) r = (objptr(rect))me-&gt;_obj;
+    if (is_method(Geometry,area)) {
+      *ret = r-&gt;w * r-&gt;h;
+      return true;
+    }
+    if (is_method(Geometry,perim)) {
+      *ret = r-&gt;w*2 + r-&gt;h*2;
+      return true;
+    }
+  }
+  return false;
 }
 </t>
 </tnodes>

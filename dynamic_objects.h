@@ -16,6 +16,7 @@ interface $Type {
 };
 interface $Class {
   object $Type _type;
+  pointer _obj;
 };
 interface $Message {
   $method _subject;
@@ -58,13 +59,16 @@ interface $Message {
   $method NAME;
 
 #define type(NAME) \
-  $Type$##NAME
+  Type$##NAME
 
 #define method_ref(TYPE,NAME) \
-  $##TYPE##$##NAME
+  TYPE##$##NAME
 
 #define method_id(TYPE,METHOD) \
-  &(type(TYPE).METHOD)
+  ($method)&(type(TYPE).METHOD)
+
+#define type_id(TYPE) \
+  ($method)&(type(TYPE)._handler)
 
 #define define_type(NAME) \
   class { \
@@ -75,10 +79,10 @@ interface $Message {
 // Message macros
 
 #define message(TYPE,METHOD) \
-  $Message$##TYPE##$##METHOD
+  Message$##TYPE##$##METHOD
 
 #define new_message(TYPE,METHOD,ARGS...) \
-  (object message(TYPE,METHOD)) { \
+  (msg_t)&(object message(TYPE,METHOD)) { \
     ._subject=method_id(TYPE,METHOD), \
     ## ARGS }
 
@@ -89,12 +93,12 @@ interface $Message {
     method_ref(TYPE,METHOD)(struct_items2) }
 
 #define my_handler(OBJ) \
-  (OBJ->_type._handler)
+  (OBJ._type._handler)
 
 #define send(OBJ,MSG) \
-  my_handler(OBJ)(OBJ, MSG)
+  my_handler(OBJ)(&OBJ, MSG)
 
-// Handler (metaclass implementation) macros
+// Metaclass macros
 
 #define handler(NAME) \
   Handler_##NAME
@@ -105,32 +109,15 @@ interface $Message {
 #define is_method(TYPE,METHOD) \
   (msg->_subject == method_id(TYPE,METHOD))
 
-#define my_message(TYPE,METHOD) \
+#define querying_type(TYPE) \
+  (msg->_subject == type_id(TYPE))
+
+#define message_of(TYPE,METHOD) \
   ((objptr(message(TYPE,METHOD)))msg)
 
+#define new(CLASS) \
+  { {handler(CLASS)}, 0 }
 
-// Metaclass (definition) macros
-
-#define class_face(NAME) \
-  $Class$##NAME
-
-#define class_handler(CLASS) \
-  class_face(CLASS)._type
-
-#define declare_class(CLASS) \
-  define_handler(CLASS); \
-  class class_face(CLASS) { \
-    object $Type _type; \
-  } class_face(CLASS) = { {handler(CLASS)} }
-
-// #define allocate_object(CLASS)
-  // allocate(object class_private_face(CLASS))
-
-// #define construct_object(OBJ,CLASS,FIELDS...)
-  // memcpy((void*)OBJ,
-    // &(object class_private_face(CLASS)) {
-      // ._type=class_handler(CLASS),
-      // ## FIELDS },
-    // sizeof(object class_private_face(CLASS)))
-
+#define implements(CLASS,TYPE) \
+  handler(CLASS)(0,&(object $Message){type_id(TYPE),0})
 #endif
