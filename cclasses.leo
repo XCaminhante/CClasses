@@ -434,6 +434,8 @@ c.p.b += '\n' + execute(command)
     // return 2 * math.Pi * c.radius
 // }
 
+//
+
 </t>
 <t tx="caminhante.20200808174417.1">import subprocess
 import re

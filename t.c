@@ -31,6 +31,8 @@
     // return 2 * math.Pi * c.radius
 // }
 
+//
+
 #define Type$Geometry(_) \
   _(area) \
   _(perim)
