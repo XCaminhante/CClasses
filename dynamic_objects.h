@@ -103,7 +103,7 @@ interface $Message {
 #define handler(NAME) \
   Handler_##NAME
 
-#define define_handler(CLASS) \
+#define define_class(CLASS) \
   bool handler(CLASS) (class_t me, msg_t msg)
 
 #define is_method(TYPE,METHOD) \
@@ -118,6 +118,9 @@ interface $Message {
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
 
+#define query_the_type(TYPE) \
+  (object $Message){type_id(TYPE),0}
+
 #define implements(CLASS,TYPE) \
-  handler(CLASS)(0,&(object $Message){type_id(TYPE),0})
+  handler(CLASS)(0,&query_the_type(TYPE))
 #endif

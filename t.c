@@ -1,8 +1,10 @@
 #include "dynamic_objects.h"
+
 // type geometry interface {
     // area() float64
     // perim() float64
 // }
+
 
 // type rect struct {
     // width, height float64
@@ -28,6 +30,7 @@
 // func (c circle) perim() float64 {
     // return 2 * math.Pi * c.radius
 // }
+
 #define Type$Geometry(_) \
   _(area) \
   _(perim)
@@ -59,19 +62,21 @@ define_type(Circle);
 #define Circle$new(_) \
   _(double,radius)
 define_message(Circle,new);
-struct rect {
-  long w;
-  long h;
-};
 
-define_handler(Rect) {
+//
+
+struct rect {
+  double w;
+  double h;
+};
+define_class(SimpleRect) {
   if (querying_type(Geometry)) { return true; }
   if (querying_type(Rect)) { return true; }
   if (is_method(Rect,new)) {
     struct rect *r = allocate(struct rect);
     r->w = message_of(Rect,new)->width;
     r->h = message_of(Rect,new)->height;
-    mutable(struct rect,me->_obj) = r;
+    mutable(struct rect, me->_obj) = r;
     return true;
   }
   if (me->_obj != NULL) {
@@ -88,11 +93,46 @@ define_handler(Rect) {
   }
   return false;
 }
+
+//
+
+struct circle {
+  double r;
+};
+define_class(SimpleCircle) {
+  if (querying_type(Geometry)) { return true; }
+  if (querying_type(Circle)) { return true; }
+  if (is_method(Circle,new)) {
+    struct circle *c = allocate(struct circle);
+    c->r = message_of(Circle,new)->radius;
+    mutable(struct circle, me->_obj) = c;
+  }
+  if (me->_obj != NULL) {
+    double *ret = (double*)msg->_return;
+    objptr(circle) c = (objptr(circle))me->_obj;
+    if (is_method(Geometry,area)) {
+      *ret = 3.14 * c->r * c->r;
+      return true;
+    }
+    if (is_method(Geometry,perim)) {
+      *ret = 2.0 * 3.14 * c->r;
+      return true;
+    }
+  }
+  return false;
+}
+
+//
+
 int main () {
-  object $Class a = new(Rect);
-  send(a, new_message(Rect,new, .width=2, .height=3));
-  double b = 0;
-  send(a, new_message(Geometry,area, ._return=&b));
-  printf("%g\n", b);
+  object $Class a = new(SimpleRect);
+  object $Class b = new(SimpleCircle);
+  double c = 0;
+  send(a, new_message(Rect,new, .width=2.0, .height=3.0));
+  send(b, new_message(Circle,new, .radius=3.0));
+  send(a, new_message(Geometry,area, ._return=&c));
+  printf("%g\n", c);
+  send(b, new_message(Geometry,area, ._return=&c));
+  printf("%g\n", c);
   return 0;
 }

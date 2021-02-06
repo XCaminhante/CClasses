@@ -83,7 +83,10 @@
 <v t="knoppix.20191220133414.1"><vh>@gcc Dynamic Example</vh>
 <v t="caminhante.20200718232148.1"><vh>Example</vh></v>
 <v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
-<v t="knoppix.20191220133433.1"><vh>Implementations</vh></v>
+<v t="knoppix.20191220133433.1"><vh>Implementations</vh>
+<v t="caminhante.20210206110212.1"><vh>Rect</vh></v>
+<v t="caminhante.20210206110222.1"><vh>Circle</vh></v>
+</v>
 </v>
 </v>
 <v t="caminhante.20200306125753.1"><vh>@clean utils.h</vh></v>
@@ -142,7 +145,7 @@ Utilities
 #define handler(NAME) \
   Handler_##NAME
 
-#define define_handler(CLASS) \
+#define define_class(CLASS) \
   bool handler(CLASS) (class_t me, msg_t msg)
 
 #define is_method(TYPE,METHOD) \
@@ -157,8 +160,11 @@ Utilities
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
 
+#define query_the_type(TYPE) \
+  (object $Message){type_id(TYPE),0}
+
 #define implements(CLASS,TYPE) \
-  handler(CLASS)(0,&amp;(object $Message){type_id(TYPE),0})
+  handler(CLASS)(0,&amp;query_the_type(TYPE))
 </t>
 <t tx="caminhante.20200402212047.1">// Macros for simplified struct defining
 // Example:
@@ -402,6 +408,7 @@ c.p.b += '\n' + execute(command)
     // perim() float64
 // }
 
+
 // type rect struct {
     // width, height float64
 // }
@@ -426,6 +433,7 @@ c.p.b += '\n' + execute(command)
 // func (c circle) perim() float64 {
     // return 2 * math.Pi * c.radius
 // }
+
 </t>
 <t tx="caminhante.20200808174417.1">import subprocess
 import re
@@ -482,13 +490,78 @@ c.p.b += '\n' + execute(command)
 </t>
 <t tx="caminhante.20210206083301.1">@others
 int main () {
-  object $Class a = new(Rect);
-  send(a, new_message(Rect,new, .width=2, .height=3));
-  double b = 0;
-  send(a, new_message(Geometry,area, ._return=&amp;b));
-  printf("%g\n", b);
+  object $Class a = new(SimpleRect);
+  object $Class b = new(SimpleCircle);
+  double c = 0;
+  send(a, new_message(Rect,new, .width=2.0, .height=3.0));
+  send(b, new_message(Circle,new, .radius=3.0));
+  send(a, new_message(Geometry,area, ._return=&amp;c));
+  printf("%g\n", c);
+  send(b, new_message(Geometry,area, ._return=&amp;c));
+  printf("%g\n", c);
   return 0;
 }</t>
+<t tx="caminhante.20210206110212.1">struct rect {
+  double w;
+  double h;
+};
+define_class(SimpleRect) {
+  if (querying_type(Geometry)) { return true; }
+  if (querying_type(Rect)) { return true; }
+  if (is_method(Rect,new)) {
+    struct rect *r = allocate(struct rect);
+    r-&gt;w = message_of(Rect,new)-&gt;width;
+    r-&gt;h = message_of(Rect,new)-&gt;height;
+    mutable(struct rect, me-&gt;_obj) = r;
+    return true;
+  }
+  if (me-&gt;_obj != NULL) {
+    double *ret = (double*)msg-&gt;_return;
+    objptr(rect) r = (objptr(rect))me-&gt;_obj;
+    if (is_method(Geometry,area)) {
+      *ret = r-&gt;w * r-&gt;h;
+      return true;
+    }
+    if (is_method(Geometry,perim)) {
+      *ret = r-&gt;w*2 + r-&gt;h*2;
+      return true;
+    }
+  }
+  return false;
+}
+
+//
+
+</t>
+<t tx="caminhante.20210206110222.1">struct circle {
+  double r;
+};
+define_class(SimpleCircle) {
+  if (querying_type(Geometry)) { return true; }
+  if (querying_type(Circle)) { return true; }
+  if (is_method(Circle,new)) {
+    struct circle *c = allocate(struct circle);
+    c-&gt;r = message_of(Circle,new)-&gt;radius;
+    mutable(struct circle, me-&gt;_obj) = c;
+  }
+  if (me-&gt;_obj != NULL) {
+    double *ret = (double*)msg-&gt;_return;
+    objptr(circle) c = (objptr(circle))me-&gt;_obj;
+    if (is_method(Geometry,area)) {
+      *ret = 3.14 * c-&gt;r * c-&gt;r;
+      return true;
+    }
+    if (is_method(Geometry,perim)) {
+      *ret = 2.0 * 3.14 * c-&gt;r;
+      return true;
+    }
+  }
+  return false;
+}
+
+//
+
+</t>
 <t tx="knoppix.20191029161928.1">@language c
 @tabwidth -2</t>
 <t tx="knoppix.20191029161928.11">#include "listmap.h"
@@ -1042,6 +1115,7 @@ interface $Message {
 #endif
 </t>
 <t tx="knoppix.20191220133414.1">#include "dynamic_objects.h"
+
 @others</t>
 <t tx="knoppix.20191220133429.1">#define Type$Geometry(_) \
   _(area) \
@@ -1073,36 +1147,11 @@ define_type(Circle);
 
 #define Circle$new(_) \
   _(double,radius)
-define_message(Circle,new);</t>
-<t tx="knoppix.20191220133433.1">struct rect {
-  long w;
-  long h;
-};
+define_message(Circle,new);
 
-define_handler(Rect) {
-  if (querying_type(Geometry)) { return true; }
-  if (querying_type(Rect)) { return true; }
-  if (is_method(Rect,new)) {
-    struct rect *r = allocate(struct rect);
-    r-&gt;w = message_of(Rect,new)-&gt;width;
-    r-&gt;h = message_of(Rect,new)-&gt;height;
-    mutable(struct rect,me-&gt;_obj) = r;
-    return true;
-  }
-  if (me-&gt;_obj != NULL) {
-    double *ret = (double*)msg-&gt;_return;
-    objptr(rect) r = (objptr(rect))me-&gt;_obj;
-    if (is_method(Geometry,area)) {
-      *ret = r-&gt;w * r-&gt;h;
-      return true;
-    }
-    if (is_method(Geometry,perim)) {
-      *ret = r-&gt;w*2 + r-&gt;h*2;
-      return true;
-    }
-  }
-  return false;
-}
+//
+
 </t>
+<t tx="knoppix.20191220133433.1">@others</t>
 </tnodes>
 </leo_file>
