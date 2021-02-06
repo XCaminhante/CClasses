@@ -543,6 +543,7 @@ define_class(SimpleCircle) {
     struct circle *c = allocate(struct circle);
     c-&gt;r = message_of(Circle,new)-&gt;radius;
     mutable(struct circle, me-&gt;_obj) = c;
+    return true;
   }
   if (me-&gt;_obj != NULL) {
     double *ret = (double*)msg-&gt;_return;

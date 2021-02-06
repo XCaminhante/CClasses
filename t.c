@@ -106,6 +106,7 @@ define_class(SimpleCircle) {
     struct circle *c = allocate(struct circle);
     c->r = message_of(Circle,new)->radius;
     mutable(struct circle, me->_obj) = c;
+    return true;
   }
   if (me->_obj != NULL) {
     double *ret = (double*)msg->_return;
