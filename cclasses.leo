@@ -501,6 +501,10 @@ int main () {
   printf("%g\n", c);
   send(b, new_message(Geometry,area, ._return=&amp;c));
   printf("%g\n", c);
+  send(a, new_message(Geometry,perim, ._return=&amp;c));
+  printf("%g\n", c);
+  send(b, new_message(Geometry,perim, ._return=&amp;c));
+  printf("%g\n", c);
   return 0;
 }</t>
 <t tx="caminhante.20210206110212.1">struct rect {

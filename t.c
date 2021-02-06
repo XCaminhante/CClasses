@@ -137,5 +137,9 @@ int main () {
   printf("%g\n", c);
   send(b, new_message(Geometry,area, ._return=&c));
   printf("%g\n", c);
+  send(a, new_message(Geometry,perim, ._return=&c));
+  printf("%g\n", c);
+  send(b, new_message(Geometry,perim, ._return=&c));
+  printf("%g\n", c);
   return 0;
 }
