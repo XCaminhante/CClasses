@@ -1,5 +1,4 @@
-#include "dynamic_objects.h"
-
+#include "cclasses.h"
 // type geometry interface {
     // area() float64
     // perim() float64

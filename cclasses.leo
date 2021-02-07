@@ -22,64 +22,10 @@
 </v>
 </v>
 <v t="knoppix.20191029161928.1"><vh>Classes C</vh>
-<v t="knoppix.20191029161928.2"><vh>/Arquivos</vh>
-<v t="knoppix.20191219150641.1"><vh>@auto-md about.md</vh></v>
-<v t="caminhante.20200708171340.1"><vh>@auto-md sobre.md</vh></v>
-<v t="knoppix.20191029161928.49"><vh>@clean basic_objects.h</vh></v>
-<v t="knoppix.20191219184003.1"><vh>@clean dynamic_objects.h</vh>
-<v t="caminhante.20200402212047.1"><vh>Struct-defining macros</vh></v>
-<v t="caminhante.20200402213256.1"><vh>Type class macros</vh></v>
-<v t="caminhante.20200402212137.1"><vh>Message macros</vh></v>
-<v t="caminhante.20200402212018.1"><vh>Metaclass macros</vh></v>
-</v>
-<v t="knoppix.20191029161928.11"><vh>@clean listmap.c</vh>
-<v t="knoppix.20191029161928.62"><vh>ListMap implementation</vh>
-<v t="knoppix.20191029161928.63"><vh>bool            same_key (objptr(ListMap) listmap, string key)</vh></v>
-<v t="knoppix.20191029161928.64"><vh>object ListMap  new (string key, pointer value, objptr(ListMap) next)</vh></v>
-<v t="knoppix.20191029161928.65"><vh>void            destroy (me(ListMap))</vh></v>
-<v t="knoppix.20191029161928.66"><vh>size_t          size (me(ListMap))</vh></v>
-<v t="knoppix.20191029161928.67"><vh>objptr(ListMap) nth (me(ListMap), size_t index)</vh></v>
-<v t="knoppix.20191029161928.68"><vh>objptr(ListMap) lookup (me(ListMap), string key)</vh></v>
-<v t="knoppix.20191029161928.69"><vh>objptr(ListMap) has (me(ListMap), pointer value)</vh></v>
-<v t="knoppix.20191029161928.70"><vh>bool            append (me(ListMap), objptr(ListMap) target)</vh></v>
-<v t="knoppix.20191029161928.71"><vh>objptr(ListMap) chopp_next (objptr(ListMap) head)</vh></v>
-<v t="knoppix.20191029161928.72"><vh>objptr(ListMap) nip_second (objptr(ListMap) head)</vh></v>
-<v t="knoppix.20191029161928.73"><vh>objptr(ListMap) unset (iterator(ListMap) *me, string key)</vh></v>
-<v t="knoppix.20191029161928.74"><vh>bool            unite (me(ListMap), objptr(ListMap) target)</vh></v>
-</v>
-</v>
-<v t="knoppix.20191029161928.25"><vh>@clean listmap.h</vh>
-<v t="knoppix.20191029161928.61"><vh>ListMap interface</vh></v>
-</v>
-<v t="knoppix.20191029161928.27"><vh>@clean stack.c</vh>
-<v t="knoppix.20191029161928.78"><vh>Stack implementation</vh>
-<v t="knoppix.20191029161928.79"><vh>object Stack  new (pointer value, objptr(Stack) next)</vh></v>
-<v t="knoppix.20191029161928.80"><vh>void          destroy (me(Stack))</vh></v>
-<v t="knoppix.20191029161928.81"><vh>size_t        size (me(Stack))</vh></v>
-<v t="knoppix.20191029161928.82"><vh>objptr(Stack) nth (me(Stack), size_t index)</vh></v>
-</v>
-</v>
-<v t="knoppix.20191029161928.33"><vh>@clean stack.h</vh>
-<v t="knoppix.20191029161928.77"><vh>Stack interface</vh></v>
-</v>
-<v t="knoppix.20191029161928.35"><vh>@clean string.c</vh>
-<v t="knoppix.20191029161928.86"><vh>String implementation</vh>
-<v t="knoppix.20191029161928.87"><vh>string new (string text)</vh></v>
-<v t="knoppix.20191029161928.88"><vh>void   destroy (string me)</vh></v>
-<v t="knoppix.20191029161928.89"><vh>size_t size (string me)</vh></v>
-<v t="knoppix.20191029161928.90"><vh>string append (string me, string more_text)</vh></v>
-<v t="knoppix.20191029161928.91"><vh>string prepend (string me, string more_text)</vh></v>
-<v t="knoppix.20191029161928.92"><vh>string first (string me, size_t bytes)</vh></v>
-<v t="knoppix.20191029161928.93"><vh>string last (string me, size_t bytes)</vh></v>
-<v t="knoppix.20191029161928.94"><vh>string indexOf (string me, const char ch)</vh></v>
-<v t="knoppix.20191029161928.95"><vh>size_t lastIndexOf (string me, const char ch)</vh></v>
-<v t="knoppix.20191029161928.96"><vh>string interpolate (string me, ...)</vh></v>
-</v>
-</v>
-<v t="knoppix.20191029161928.47"><vh>@clean string.h</vh>
-<v t="knoppix.20191029161928.85"><vh>String interface</vh></v>
-</v>
-<v t="caminhante.20210206083301.1"><vh>@clean t.c</vh>
+<v t="knoppix.20191029161928.2"><vh>@path .</vh>
+<v t="caminhante.20210207103732.2"><vh>/.git/</vh></v>
+<v t="caminhante.20210207103732.1"><vh>/t/</vh>
+<v t="caminhante.20210206083301.1"><vh>@clean 0001.c</vh>
 <v t="knoppix.20191220133414.1"><vh>@gcc Dynamic Example</vh>
 <v t="caminhante.20200718232148.1"><vh>Example</vh></v>
 <v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
@@ -89,7 +35,15 @@
 </v>
 </v>
 </v>
-<v t="caminhante.20200306125753.1"><vh>@clean utils.h</vh></v>
+<v t="caminhante.20210207103824.1"><vh>@clean Makefile</vh></v>
+</v>
+<v t="caminhante.20210207102455.6"><vh>/include/</vh>
+<v t="caminhante.20210207102516.1"><vh>@file cclasses.h</vh></v>
+</v>
+<v t="caminhante.20210207105028.1"><vh>@clean .gitignore</vh></v>
+<v t="caminhante.20210207102455.2"><vh>cclasses.leo</vh></v>
+<v t="caminhante.20210207102455.4"><vh>LICENSE</vh></v>
+<v t="caminhante.20210207102455.3"><vh>README.md</vh></v>
 </v>
 <v t="knoppix.20191029161928.50"><vh>File</vh>
 <v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
@@ -104,145 +58,54 @@
 <v t="knoppix.20191029161928.59"><vh>FilePath interface</vh></v>
 </v>
 <v t="knoppix.20191029161928.60"><vh>ListMap</vh>
-<v t="knoppix.20191029161928.61"></v>
-<v t="knoppix.20191029161928.62"></v>
+<v t="knoppix.20191029161928.61"><vh>ListMap interface</vh></v>
+<v t="knoppix.20191029161928.62"><vh>ListMap implementation</vh>
+<v t="knoppix.20191029161928.63"><vh>bool            same_key (objptr(ListMap) listmap, string key)</vh></v>
+<v t="knoppix.20191029161928.64"><vh>object ListMap  new (string key, pointer value, objptr(ListMap) next)</vh></v>
+<v t="knoppix.20191029161928.65"><vh>void            destroy (me(ListMap))</vh></v>
+<v t="knoppix.20191029161928.66"><vh>size_t          size (me(ListMap))</vh></v>
+<v t="knoppix.20191029161928.67"><vh>objptr(ListMap) nth (me(ListMap), size_t index)</vh></v>
+<v t="knoppix.20191029161928.68"><vh>objptr(ListMap) lookup (me(ListMap), string key)</vh></v>
+<v t="knoppix.20191029161928.69"><vh>objptr(ListMap) has (me(ListMap), pointer value)</vh></v>
+<v t="knoppix.20191029161928.70"><vh>bool            append (me(ListMap), objptr(ListMap) target)</vh></v>
+<v t="knoppix.20191029161928.71"><vh>objptr(ListMap) chopp_next (objptr(ListMap) head)</vh></v>
+<v t="knoppix.20191029161928.72"><vh>objptr(ListMap) nip_second (objptr(ListMap) head)</vh></v>
+<v t="knoppix.20191029161928.73"><vh>objptr(ListMap) unset (iterator(ListMap) *me, string key)</vh></v>
+<v t="knoppix.20191029161928.74"><vh>bool            unite (me(ListMap), objptr(ListMap) target)</vh></v>
+</v>
 <v t="knoppix.20191029161928.75"><vh>ListMap tests</vh></v>
 </v>
 <v t="knoppix.20191029161928.76"><vh>Stack</vh>
-<v t="knoppix.20191029161928.77"></v>
-<v t="knoppix.20191029161928.78"></v>
+<v t="knoppix.20191029161928.77"><vh>Stack interface</vh></v>
+<v t="knoppix.20191029161928.78"><vh>Stack implementation</vh>
+<v t="knoppix.20191029161928.79"><vh>object Stack  new (pointer value, objptr(Stack) next)</vh></v>
+<v t="knoppix.20191029161928.80"><vh>void          destroy (me(Stack))</vh></v>
+<v t="knoppix.20191029161928.81"><vh>size_t        size (me(Stack))</vh></v>
+<v t="knoppix.20191029161928.82"><vh>objptr(Stack) nth (me(Stack), size_t index)</vh></v>
+</v>
 <v t="knoppix.20191029161928.83"><vh>Stack tests</vh></v>
 </v>
 <v t="knoppix.20191029161928.84"><vh>String</vh>
-<v t="knoppix.20191029161928.85"></v>
-<v t="knoppix.20191029161928.86"></v>
+<v t="knoppix.20191029161928.85"><vh>String interface</vh></v>
+<v t="knoppix.20191029161928.86"><vh>String implementation</vh>
+<v t="knoppix.20191029161928.87"><vh>string new (string text)</vh></v>
+<v t="knoppix.20191029161928.88"><vh>void   destroy (string me)</vh></v>
+<v t="knoppix.20191029161928.89"><vh>size_t size (string me)</vh></v>
+<v t="knoppix.20191029161928.90"><vh>string append (string me, string more_text)</vh></v>
+<v t="knoppix.20191029161928.91"><vh>string prepend (string me, string more_text)</vh></v>
+<v t="knoppix.20191029161928.92"><vh>string first (string me, size_t bytes)</vh></v>
+<v t="knoppix.20191029161928.93"><vh>string last (string me, size_t bytes)</vh></v>
+<v t="knoppix.20191029161928.94"><vh>string indexOf (string me, const char ch)</vh></v>
+<v t="knoppix.20191029161928.95"><vh>size_t lastIndexOf (string me, const char ch)</vh></v>
+<v t="knoppix.20191029161928.96"><vh>string interpolate (string me, ...)</vh></v>
+</v>
 <v t="knoppix.20191029161928.97"><vh>String tests</vh></v>
 </v>
 </v>
 </vnodes>
 <tnodes>
-<t tx="caminhante.20200306125753.1">@
-Utilities
-@c
-
-#include &lt;ctype.h&gt;
-#include &lt;fcntl.h&gt;
-#include &lt;stdarg.h&gt;
-#include &lt;stdbool.h&gt;
-#include &lt;stddef.h&gt;
-#include &lt;stdint.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-#include &lt;sys/stat.h&gt;
-#include &lt;sys/types.h&gt;
-#include &lt;unistd.h&gt;</t>
 <t tx="caminhante.20200313155940.1"></t>
 <t tx="caminhante.20200313155940.99">@language python
-</t>
-<t tx="caminhante.20200402212018.1">// Metaclass macros
-
-#define handler(NAME) \
-  Handler_##NAME
-
-#define define_class(CLASS) \
-  bool handler(CLASS) (class_t me, msg_t msg)
-
-#define is_method(TYPE,METHOD) \
-  (msg-&gt;_subject == method_id(TYPE,METHOD))
-
-#define querying_type(TYPE) \
-  (msg-&gt;_subject == type_id(TYPE))
-
-#define message_of(TYPE,METHOD) \
-  ((objptr(message(TYPE,METHOD)))msg)
-
-#define new(CLASS) \
-  { {handler(CLASS)}, 0 }
-
-#define query_the_type(TYPE) \
-  (object $Message){type_id(TYPE),0}
-
-#define implements(CLASS,TYPE) \
-  handler(CLASS)(0,&amp;query_the_type(TYPE))
-</t>
-<t tx="caminhante.20200402212047.1">// Macros for simplified struct defining
-// Example:
-//
-// #define $test(_) \`
-//   _(long,a,1)    \`
-//   _(long,b,2)    \`
-// define_struct3(test);
-
-#define ref(NAME) \
-  $##NAME
-
-#define struct_items3(TYPE,NAME,VALUE) \
-  TYPE NAME;
-
-#define struct_items2(TYPE,NAME) \
-  TYPE NAME;
-
-#define init_values(TYPE,NAME,VALUE) \
-  VALUE,
-
-#define define_struct3(NAME) \
-  struct NAME { \
-    ref(NAME)(struct_items3) \
-  } NAME = { ref(NAME)(init_values) }
-
-#define define_struct2(NAME) \
-  struct NAME { \
-    ref(NAME)(struct_items2) \
-  }
-
-</t>
-<t tx="caminhante.20200402212137.1">// Message macros
-
-#define message(TYPE,METHOD) \
-  Message$##TYPE##$##METHOD
-
-#define new_message(TYPE,METHOD,ARGS...) \
-  (msg_t)&amp;(object message(TYPE,METHOD)) { \
-    ._subject=method_id(TYPE,METHOD), \
-    ## ARGS }
-
-#define define_message(TYPE,METHOD) \
-  interface message(TYPE,METHOD) { \
-    $method _subject; \
-    pointer _return; \
-    method_ref(TYPE,METHOD)(struct_items2) }
-
-#define my_handler(OBJ) \
-  (OBJ._type._handler)
-
-#define send(OBJ,MSG) \
-  my_handler(OBJ)(&amp;OBJ, MSG)
-
-</t>
-<t tx="caminhante.20200402213256.1">// Type classes macros
-
-#define type_items(NAME) \
-  $method NAME;
-
-#define type(NAME) \
-  Type$##NAME
-
-#define method_ref(TYPE,NAME) \
-  TYPE##$##NAME
-
-#define method_id(TYPE,METHOD) \
-  ($method)&amp;(type(TYPE).METHOD)
-
-#define type_id(TYPE) \
-  ($method)&amp;(type(TYPE)._handler)
-
-#define define_type(NAME) \
-  class { \
-    $method _handler; \
-    type(NAME)(type_items) \
-  } type(NAME) = default
-
 </t>
 <t tx="caminhante.20200604232050.1">import subprocess
 
@@ -569,71 +432,25 @@ define_class(SimpleCircle) {
 //
 
 </t>
+<t tx="caminhante.20210207102455.2"></t>
+<t tx="caminhante.20210207102455.3"></t>
+<t tx="caminhante.20210207102455.4"></t>
+<t tx="caminhante.20210207102455.6">@path include</t>
+<t tx="caminhante.20210207103732.1">@path t</t>
+<t tx="caminhante.20210207103732.2">@path .git</t>
+<t tx="caminhante.20210207103824.1">@tabwidth 5
+CFLAGS := -Wall -Werror -std=gnu11 -I../include/
+TARGETS := $(shell ls * | grep -v Makefile | grep -v '.t' | sed -r 's/(.*)/\1.t/g')
+
+all: $(TARGETS)
+
+%.c.t: %.c
+	gcc $&lt; $(CFLAGS) -o $@</t>
+<t tx="caminhante.20210207105028.1">@nocolor
+t/*.t</t>
 <t tx="knoppix.20191029161928.1">@language c
 @tabwidth -2</t>
-<t tx="knoppix.20191029161928.11">#include "listmap.h"
-
-@others</t>
 <t tx="knoppix.20191029161928.2"></t>
-<t tx="knoppix.20191029161928.25">#ifndef _LISTMAP_CLASS_
-#define _LISTMAP_CLASS_
-
-#include "basic_objects.h"
-
-@others
-
-#endif</t>
-<t tx="knoppix.20191029161928.27">#include "stack.h"
-
-@others</t>
-<t tx="knoppix.20191029161928.33">#ifndef _STACK_CLASS_
-#define _STACK_CLASS_
-
-#include "basic_objects.h"
-
-@others
-
-#endif</t>
-<t tx="knoppix.20191029161928.35">#include "string.h"
-
-@others</t>
-<t tx="knoppix.20191029161928.47">#ifndef _STRING_CLASS_
-#define _STRING_CLASS_
-
-#include "basic_objects.h"
-
-@others
-
-#endif</t>
-<t tx="knoppix.20191029161928.49">#ifndef _BASICOBJS_H_
-#define _BASICOBJS_H_
-
-#include "utils.h"
-
-@
-Macros and definitions for immutable states and basic object model support.
-@c
-
-#define funcptr *const
-#define dataptr const*const
-#define iterptr const*
-#define pointer void dataptr
-#define string  char dataptr
-#define default {0}
-
-#define interface   struct
-#define object      const struct
-#define class       const struct
-
-#define objptr(CLASS)       struct CLASS dataptr
-#define iterator(CLASS)     struct CLASS iterptr
-#define me(CLASS)           objptr(CLASS) me
-#define mutable(CLASS,OBJ)  *((CLASS const* *) &amp;OBJ)
-
-#define allocate(CLASS)     malloc(sizeof(CLASS))
-
-#endif
-</t>
 <t tx="knoppix.20191029161928.50"></t>
 <t tx="knoppix.20191029161928.51">enum $File$AccessMode {
   $File$read = O_RDONLY,
@@ -1093,36 +910,7 @@ class $String String = {
   puts(d);
 }
 </t>
-<t tx="knoppix.20191219184003.1">#ifndef _DYNAMOBJS_H_
-#define _DYNAMOBJS_H_
-
-#include "basic_objects.h"
-
-// Macros and definitions for a intensional type-safe message-passing-based object system.
-
-typedef objptr($Message) msg_t;
-typedef objptr($Class)   class_t;
-typedef objptr($Type)    type_t;
-
-typedef bool (funcptr $method) (class_t me, msg_t msg);
-
-interface $Type {
-  $method _handler;
-};
-interface $Class {
-  object $Type _type;
-  pointer _obj;
-};
-interface $Message {
-  $method _subject;
-  pointer _return;
-};
-
-@others
-#endif
-</t>
-<t tx="knoppix.20191220133414.1">#include "dynamic_objects.h"
-
+<t tx="knoppix.20191220133414.1">#include "cclasses.h"
 @others</t>
 <t tx="knoppix.20191220133429.1">#define Type$Geometry(_) \
   _(area) \
