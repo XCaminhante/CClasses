@@ -43,7 +43,7 @@
 <v t="caminhante.20210207105028.1"><vh>@clean .gitignore</vh></v>
 <v t="caminhante.20210207102455.2"><vh>cclasses.leo</vh></v>
 <v t="caminhante.20210207102455.4"><vh>LICENSE</vh></v>
-<v t="caminhante.20210207102455.3"><vh>README.md</vh></v>
+<v t="caminhante.20210207102455.3"><vh>@auto README.md</vh></v>
 </v>
 <v t="knoppix.20191029161928.50"><vh>File</vh>
 <v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
@@ -433,7 +433,6 @@ define_class(SimpleCircle) {
 
 </t>
 <t tx="caminhante.20210207102455.2"></t>
-<t tx="caminhante.20210207102455.3"></t>
 <t tx="caminhante.20210207102455.4"></t>
 <t tx="caminhante.20210207102455.6">@path include</t>
 <t tx="caminhante.20210207103732.1">@path t</t>
