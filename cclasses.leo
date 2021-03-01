@@ -24,6 +24,9 @@
 <v t="knoppix.20191029161928.1"><vh>Classes C</vh>
 <v t="knoppix.20191029161928.2"><vh>@path .</vh>
 <v t="caminhante.20210207103732.2"><vh>/.git/</vh></v>
+<v t="caminhante.20210207102455.6"><vh>/include/</vh>
+<v t="caminhante.20210207102516.1"><vh>@file cclasses.h</vh></v>
+</v>
 <v t="caminhante.20210207103732.1"><vh>/t/</vh>
 <v t="caminhante.20210206083301.1"><vh>@clean 0001.c</vh>
 <v t="knoppix.20191220133414.1"><vh>@gcc Dynamic Example</vh>
@@ -37,13 +40,10 @@
 </v>
 <v t="caminhante.20210207103824.1"><vh>@clean Makefile</vh></v>
 </v>
-<v t="caminhante.20210207102455.6"><vh>/include/</vh>
-<v t="caminhante.20210207102516.1"><vh>@file cclasses.h</vh></v>
-</v>
+<v t="caminhante.20210207102455.3"><vh>@auto README.md</vh></v>
 <v t="caminhante.20210207105028.1"><vh>@clean .gitignore</vh></v>
 <v t="caminhante.20210207102455.2"><vh>cclasses.leo</vh></v>
 <v t="caminhante.20210207102455.4"><vh>LICENSE</vh></v>
-<v t="caminhante.20210207102455.3"><vh>@auto README.md</vh></v>
 </v>
 <v t="knoppix.20191029161928.50"><vh>File</vh>
 <v t="knoppix.20191029161928.51"><vh>File interface</vh></v>

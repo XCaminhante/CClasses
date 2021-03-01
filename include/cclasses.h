@@ -98,6 +98,10 @@ interface $Message {
     $method _subject; \
     pointer _return; \
     method_ref(TYPE,METHOD)(struct_items2) }
+#define define_property(TYPE,METHOD) \
+  interface message(TYPE,METHOD) { \
+    $method _subject; \
+    pointer _return; }
 #define my_handler(OBJ) \
   (OBJ._type._handler)
 #define send(OBJ,MSG) \
