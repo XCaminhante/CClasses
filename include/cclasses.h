@@ -25,7 +25,6 @@
 #define default   {0}
 #define interface     struct
 #define object        const struct
-#define class         const struct
 #define objptr(CLASS)         struct CLASS dataptr
 #define iterator(CLASS)       struct CLASS iterptr
 #define me(CLASS)             objptr(CLASS) me
@@ -82,7 +81,7 @@ interface $Message {
 #define type_id(TYPE) \
   ($method)&(type(TYPE)._handler)
 #define define_type(NAME) \
-  class { \
+  object { \
     $method _handler; \
     type(NAME)(type_items) \
   } type(NAME) = default

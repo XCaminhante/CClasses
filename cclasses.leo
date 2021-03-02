@@ -26,6 +26,7 @@
 <v t="caminhante.20210207103732.2"><vh>/.git/</vh></v>
 <v t="caminhante.20210207102455.6"><vh>/include/</vh>
 <v t="caminhante.20210207102516.1"><vh>@file cclasses.h</vh></v>
+<v t="caminhante.20210302085846.1"><vh>@file stl.h</vh></v>
 </v>
 <v t="caminhante.20210207103732.1"><vh>/t/</vh>
 <v t="caminhante.20210206083301.1"><vh>@clean 0001.c</vh>
