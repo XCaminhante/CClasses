@@ -60,12 +60,12 @@ interface $Message {
   TYPE NAME;
 #define struct_items2(TYPE,NAME) \
   TYPE NAME;
-#define init_values(TYPE,NAME,VALUE) \
+#define struct_init_values(TYPE,NAME,VALUE) \
   VALUE,
 #define define_struct3(NAME) \
   struct NAME { \
     ref(NAME)(struct_items3) \
-  } NAME = { ref(NAME)(init_values) }
+  } NAME = { ref(NAME)(struct_init_values) }
 #define define_struct2(NAME) \
   struct NAME { \
     ref(NAME)(struct_items2) }
@@ -116,11 +116,11 @@ interface $Message {
   (msg->_subject == method_id(TYPE,METHOD))
 #define querying_type(TYPE) \
   (msg->_subject == type_id(TYPE))
-#define message_of(TYPE,METHOD) \
+#define cast_msg(TYPE,METHOD) \
   ((objptr(message(TYPE,METHOD)))msg)
-#define new(CLASS) \
-  { {handler(CLASS)}, 0 }
-#define query_the_type(TYPE) \
+#define new(CLASS,INITVAL) \
+  { {handler(CLASS)}, ({INITVAL||0}) }
+#define query_type(TYPE) \
   (object $Message){type_id(TYPE),0}
 #define implements(CLASS,TYPE) \
   handler(CLASS)(0,&query_the_type(TYPE))
