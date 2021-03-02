@@ -89,7 +89,7 @@ interface $Message {
 #define message(TYPE,METHOD) \
   Message$##TYPE##$##METHOD
 #define new_message(TYPE,METHOD,ARGS...) \
-  (msg_t)&(object message(TYPE,METHOD)) { \
+  (object message(TYPE,METHOD)) { \
     ._subject=method_id(TYPE,METHOD), \
     ## ARGS }
 #define define_message(TYPE,METHOD) \
@@ -106,9 +106,9 @@ interface $Message {
 #define send(OBJ,MSG) \
   my_handler(OBJ)(&OBJ, MSG)
 #define send_msg(OBJ,TYPE,METHOD,ARGS...) \
-  send(OBJ,new_message(TYPE,METHOD, ## ARGS))
+  send(OBJ,(msg_t)&new_message(TYPE,METHOD, ## ARGS))
 #define get_property(OBJ,VAR,TYPE,NAME) \
-  send(OBJ,new_message(TYPE,NAME,._return=&VAR))
+  send(OBJ,(msg_t)&new_message(TYPE,NAME,._return=&VAR))
 //@+node:caminhante.20200402212018.1: *3* Metaclass macros
 #define handler(NAME) \
   Handler_##NAME
@@ -127,7 +127,7 @@ interface $Message {
 #define query_type(TYPE) \
   (object $Message){type_id(TYPE),0}
 #define implements(CLASS,TYPE) \
-  handler(CLASS)(0,&query_the_type(TYPE))
+  handler(CLASS)(0,&query_type(TYPE))
 //@-others
 //@-others
 #endif
