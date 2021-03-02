@@ -107,7 +107,7 @@ interface $Message {
   my_handler(OBJ)(&OBJ, MSG)
 #define send_msg(OBJ,TYPE,METHOD,ARGS...) \
   send(OBJ,(msg_t)&new_message(TYPE,METHOD, ## ARGS))
-#define get_property(OBJ,VAR,TYPE,NAME) \
+#define get_property(OBJ,TYPE,NAME,VAR) \
   send(OBJ,(msg_t)&new_message(TYPE,NAME,._return=&VAR))
 //@+node:caminhante.20200402212018.1: *3* Metaclass macros
 #define handler(NAME) \
