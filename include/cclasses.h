@@ -119,7 +119,7 @@ interface $Message {
 #define cast_msg(TYPE,METHOD) \
   ((objptr(message(TYPE,METHOD)))msg)
 #define new(CLASS,INITVAL) \
-  { {handler(CLASS)}, ({INITVAL||default;}) }
+  { {handler(CLASS)}, ({INITVAL||(dataptr)default;}) }
 #define query_type(TYPE) \
   (object $Message){type_id(TYPE),0}
 #define implements(CLASS,TYPE) \
