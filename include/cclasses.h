@@ -27,9 +27,11 @@
 #define object        const struct
 #define objptr(CLASS)         struct CLASS dataptr
 #define iterator(CLASS)       struct CLASS iterptr
-#define me(CLASS)             objptr(CLASS) me
-#define mutable(CLASS,OBJ)    *((CLASS const* *) &OBJ)
-#define allocate(CLASS)       malloc(sizeof(CLASS))
+#define obj(CLASS)            objptr(CLASS) me->_obj
+#define ret(TYPE)             (TYPE dataptr) msg->_return
+#define mutable(TYPE,OBJ)     (*(TYPE **) &OBJ)
+#define mutableptr(TYPEP,OBJ) (*(TYPEP *) OBJ)
+#define allocate(TYPE)        malloc(sizeof(TYPE))
 //@+node:caminhante.20191219184003.1: ** Dynamic objects model
 typedef objptr($Message) msg_t;
 typedef objptr($Class)   class_t;
