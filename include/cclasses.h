@@ -16,7 +16,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-//@+node:caminhante.20191029161928.49: ** Immutable states and basic static object vocabulary
+//@+node:caminhante.20191029161928.49: ** Immutable states and basic object vocabulary
 #define funcptr   *const
 #define dataptr   const*const
 #define iterptr   const*
