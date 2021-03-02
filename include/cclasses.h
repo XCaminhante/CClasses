@@ -118,8 +118,8 @@ interface $Message {
   (msg->_subject == type_id(TYPE))
 #define cast_msg(TYPE,METHOD) \
   ((objptr(message(TYPE,METHOD)))msg)
-#define new(CLASS,INITVAL) \
-  { {handler(CLASS)}, INITVAL }
+#define new(CLASS) \
+  { {handler(CLASS)}, 0 }
 #define query_type(TYPE) \
   (object $Message){type_id(TYPE),0}
 #define implements(CLASS,TYPE) \
