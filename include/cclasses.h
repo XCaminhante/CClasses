@@ -124,6 +124,8 @@ interface $Message {
   (msg->_subject == type_id(TYPE))
 #define cast_msg(TYPE,METHOD) \
   ((msgptr(TYPE,METHOD))msg)
+#define retptr(TYPEP) \
+  mutableptr(TYPEP,msg->_return)
 #define cast_obj(CLASS) \
   ((objptr(CLASS))me->_obj)
 #define new(CLASS) \
