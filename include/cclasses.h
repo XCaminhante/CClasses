@@ -27,8 +27,6 @@
 #define object        const struct
 #define objptr(CLASS)         struct CLASS dataptr
 #define iterator(CLASS)       struct CLASS iterptr
-#define obj(CLASS)            objptr(CLASS) me->_obj
-#define ret(TYPE)             (TYPE dataptr) msg->_return
 #define mutable(TYPE,OBJ)     (*(TYPE **) &OBJ)
 #define mutableptr(TYPEP,OBJ) (*(TYPEP *) OBJ)
 #define allocate(TYPE)        malloc(sizeof(TYPE))
@@ -125,7 +123,9 @@ interface $Message {
 #define querying_type(TYPE) \
   (msg->_subject == type_id(TYPE))
 #define cast_msg(TYPE,METHOD) \
-  ((objptr(message(TYPE,METHOD)))msg)
+  (msgptr(TYPE,METHOD))msg)
+#define cast_obj(CLASS) \
+  ((objptr(CLASS))me->_obj)
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
 #define query_type(TYPE) \
