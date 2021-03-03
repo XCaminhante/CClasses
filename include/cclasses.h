@@ -94,6 +94,8 @@ interface $Message {
   (object message(TYPE,METHOD)) { \
     ._subject=method_id(TYPE,METHOD), \
     ## ARGS }
+#define msgptr(TYPE,METHOD) \
+  objptr(message(TYPE,METHOD))
 #define define_message(TYPE,METHOD) \
   interface message(TYPE,METHOD) { \
     $method _subject; \
