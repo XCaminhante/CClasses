@@ -123,7 +123,7 @@ interface $Message {
 #define querying_type(TYPE) \
   (msg->_subject == type_id(TYPE))
 #define cast_msg(TYPE,METHOD) \
-  (msgptr(TYPE,METHOD))msg)
+  ((msgptr(TYPE,METHOD))msg)
 #define cast_obj(CLASS) \
   ((objptr(CLASS))me->_obj)
 #define new(CLASS) \
