@@ -128,9 +128,9 @@ interface $Message {
   ((objptr(CLASS))me->_obj)
 #define cast_ret(TYPEP) \
   ((TYPEP iterptr)msg->_return)
-#define mobjptr(CLASS) \
+#define mutobjptr(CLASS) \
   mutable(struct CLASS, me->_obj)
-#define mretptr(TYPEP) \
+#define mutretptr(TYPEP) \
   mutableptr(TYPEP,msg->_return)
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
