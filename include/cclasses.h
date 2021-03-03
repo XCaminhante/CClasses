@@ -124,10 +124,14 @@ interface $Message {
   (msg->_subject == type_id(TYPE))
 #define cast_msg(TYPE,METHOD) \
   ((msgptr(TYPE,METHOD))msg)
-#define retptr(TYPEP) \
-  mutableptr(TYPEP,msg->_return)
 #define cast_obj(CLASS) \
   ((objptr(CLASS))me->_obj)
+#define cast_ret(TYPEP) \
+  ((TYPEP iterptr)msg->_return)
+#define mobjptr(CLASS) \
+  mutable(struct CLASS, me->_obj)
+#define mretptr(TYPEP) \
+  mutableptr(TYPEP,msg->_return)
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
 #define query_type(TYPE) \
