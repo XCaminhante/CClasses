@@ -134,10 +134,8 @@ int main (int argc, char** argv) {
   object $Class b = new(SimpleCircle);
   double c = 0;
   // send_msg(OBJ,TYPE,METHOD,ARGS...)
-  tap_assert( send_msg(a, Rect,new, .width=2.0, .height=3.0),
-    ++tests, "a = new Rect(width=2.0, height=3.0)");
-  tap_assert( send_msg(b, Circle,new, .radius=3.0),
-    ++tests, "b = new Circle(radius=3.0)");
+  tap_assert( send_msg(a, Rect,new, .width=2.0, .height=3.0), ++tests, "a = new Rect(width=2.0, height=3.0)");
+  tap_assert( send_msg(b, Circle,new, .radius=3.0), ++tests, "b = new Circle(radius=3.0)");
   // send_type_query(OBJ,TYPE)
   tap_assert( send_type_query(a,Geometry), ++tests, "does a implements Geometry");
   tap_assert( send_type_query(a,Rect), ++tests, "does a implements Rect");
