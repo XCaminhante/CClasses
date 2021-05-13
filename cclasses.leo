@@ -29,22 +29,14 @@
 <v t="caminhante.20210302085846.1"><vh>@file stl.h</vh></v>
 </v>
 <v t="caminhante.20210207103732.1"><vh>/t/</vh>
-<v t="caminhante.20210206083301.1"><vh>@clean 0001.c</vh>
-<v t="knoppix.20191220133414.1"><vh>@gcc Dynamic Example</vh>
-<v t="caminhante.20200718232148.1"><vh>Example</vh></v>
-<v t="knoppix.20191220133429.1"><vh>Interfaces</vh></v>
-<v t="knoppix.20191220133433.1"><vh>Implementations</vh>
-<v t="caminhante.20210206110212.1"><vh>Rect</vh></v>
-<v t="caminhante.20210206110222.1"><vh>Circle</vh></v>
-</v>
-</v>
-</v>
-<v t="caminhante.20210207103824.1"><vh>@clean Makefile</vh></v>
+<v t="caminhante.20210513083852.1"><vh>@clean Makefile</vh></v>
+<v t="caminhante.20210513083845.1"><vh>@file 0001.c</vh></v>
+<v t="caminhante.20210513092443.1"><vh>@file 0002.c</vh></v>
 </v>
 <v t="caminhante.20210207102455.3"><vh>@auto README.md</vh></v>
-<v t="caminhante.20210207105028.1"><vh>@clean .gitignore</vh></v>
-<v t="caminhante.20210207102455.2"><vh>cclasses.leo</vh></v>
-<v t="caminhante.20210207102455.4"><vh>LICENSE</vh></v>
+<v t="caminhante.20210513092228.1"><vh>@clean Makefile</vh></v>
+<v t="caminhante.20210207105028.1"><vh>@edit .gitignore</vh></v>
+<v t="caminhante.20210207102455.4"><vh>@edit LICENSE</vh></v>
 </v>
 <v t="knoppix.20191029161928.50"><vh>File</vh>
 <v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
@@ -267,40 +259,6 @@ command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | node\n"+code+'\nEOFEOFEOFEOFEOFEOF
 
 c.p.b += '\n' + execute(command)
 </t>
-<t tx="caminhante.20200718232148.1">// type geometry interface {
-    // area() float64
-    // perim() float64
-// }
-
-
-// type rect struct {
-    // width, height float64
-// }
-
-// func (r rect) area() float64 {
-    // return r.width * r.height
-// }
-
-// func (r rect) perim() float64 {
-    // return 2*r.width + 2*r.height
-// }
-
-
-// type circle struct {
-    // radius float64
-// }
-
-// func (c circle) area() float64 {
-    // return math.Pi * c.radius * c.radius
-// }
-
-// func (c circle) perim() float64 {
-    // return 2 * math.Pi * c.radius
-// }
-
-//
-
-</t>
 <t tx="caminhante.20200808174417.1">import subprocess
 import re
 
@@ -354,100 +312,31 @@ command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | gcc -xc - -Wall -Werror -std=gnu11
 c.p.b += '\n' + execute(command)
 # g.es(command)
 </t>
-<t tx="caminhante.20210206083301.1">@others
-int main () {
-  object $Class a = new(SimpleRect);
-  object $Class b = new(SimpleCircle);
-  double c = 0;
-  send(a, new_message(Rect,new, .width=2.0, .height=3.0));
-  send(b, new_message(Circle,new, .radius=3.0));
-  send(a, new_message(Geometry,area, ._return=&amp;c));
-  printf("%g\n", c);
-  send(b, new_message(Geometry,area, ._return=&amp;c));
-  printf("%g\n", c);
-  send(a, new_message(Geometry,perim, ._return=&amp;c));
-  printf("%g\n", c);
-  send(b, new_message(Geometry,perim, ._return=&amp;c));
-  printf("%g\n", c);
-  return 0;
-}</t>
-<t tx="caminhante.20210206110212.1">struct rect {
-  double w;
-  double h;
-};
-define_class(SimpleRect) {
-  if (querying_type(Geometry)) { return true; }
-  if (querying_type(Rect)) { return true; }
-  if (is_method(Rect,new)) {
-    struct rect *r = allocate(struct rect);
-    r-&gt;w = message_of(Rect,new)-&gt;width;
-    r-&gt;h = message_of(Rect,new)-&gt;height;
-    mutable(struct rect, me-&gt;_obj) = r;
-    return true;
-  }
-  if (me-&gt;_obj != NULL) {
-    double *ret = (double*)msg-&gt;_return;
-    objptr(rect) r = (objptr(rect))me-&gt;_obj;
-    if (is_method(Geometry,area)) {
-      *ret = r-&gt;w * r-&gt;h;
-      return true;
-    }
-    if (is_method(Geometry,perim)) {
-      *ret = r-&gt;w*2 + r-&gt;h*2;
-      return true;
-    }
-  }
-  return false;
-}
-
-//
-
-</t>
-<t tx="caminhante.20210206110222.1">struct circle {
-  double r;
-};
-define_class(SimpleCircle) {
-  if (querying_type(Geometry)) { return true; }
-  if (querying_type(Circle)) { return true; }
-  if (is_method(Circle,new)) {
-    struct circle *c = allocate(struct circle);
-    c-&gt;r = message_of(Circle,new)-&gt;radius;
-    mutable(struct circle, me-&gt;_obj) = c;
-    return true;
-  }
-  if (me-&gt;_obj != NULL) {
-    double *ret = (double*)msg-&gt;_return;
-    objptr(circle) c = (objptr(circle))me-&gt;_obj;
-    if (is_method(Geometry,area)) {
-      *ret = 3.14 * c-&gt;r * c-&gt;r;
-      return true;
-    }
-    if (is_method(Geometry,perim)) {
-      *ret = 2.0 * 3.14 * c-&gt;r;
-      return true;
-    }
-  }
-  return false;
-}
-
-//
-
-</t>
-<t tx="caminhante.20210207102455.2"></t>
-<t tx="caminhante.20210207102455.4"></t>
 <t tx="caminhante.20210207102455.6">@path include</t>
 <t tx="caminhante.20210207103732.1">@path t</t>
 <t tx="caminhante.20210207103732.2">@path .git</t>
-<t tx="caminhante.20210207103824.1">@tabwidth 5
-CFLAGS := -Wall -Werror -std=gnu11 -I../include/
-TARGETS := $(shell ls * | grep -v Makefile | grep -v '.t' | sed -r 's/(.*)/\1.t/g')
+<t tx="caminhante.20210513083852.1">@language makefile
+@tabwidth 4
+TARGETS := $(patsubst %.c,%.t,$(wildcard *.c))
+CFLAGS := -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os -I ../include/
 
 all: $(TARGETS)
+	prove --verbose .
 
-%.c.t: %.c
-	gcc $&lt; $(CFLAGS) -o $@</t>
-<t tx="caminhante.20210207105028.1">@nocolor
-t/*.t</t>
+%.t: %.c
+	$(CC) $(CFLAGS) $&lt; -o $@
+
+</t>
+<t tx="caminhante.20210513092228.1">@language makefile
+@tabwidth 4
+CFLAGS := -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os
+
+all: test
+
+test:
+	make -C t/
+
+.PHONY: test</t>
 <t tx="knoppix.20191029161928.1">@language c
 @tabwidth -2</t>
 <t tx="knoppix.20191029161928.2"></t>
@@ -910,43 +799,5 @@ class $String String = {
   puts(d);
 }
 </t>
-<t tx="knoppix.20191220133414.1">#include "cclasses.h"
-@others</t>
-<t tx="knoppix.20191220133429.1">#define Type$Geometry(_) \
-  _(area) \
-  _(perim)
-define_type(Geometry);
-
-#define Geometry$area(_)
-define_message(Geometry,area);
-
-#define Geometry$perim(_)
-define_message(Geometry,perim);
-
-//
-
-#define Type$Rect(_) \
-  _(new)
-define_type(Rect);
-
-#define Rect$new(_) \
-  _(double,width) \
-  _(double,height)
-define_message(Rect,new);
-
-//
-
-#define Type$Circle(_) \
-  _(new)
-define_type(Circle);
-
-#define Circle$new(_) \
-  _(double,radius)
-define_message(Circle,new);
-
-//
-
-</t>
-<t tx="knoppix.20191220133433.1">@others</t>
 </tnodes>
 </leo_file>

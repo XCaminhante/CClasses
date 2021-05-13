@@ -1,7 +1,9 @@
-CFLAGS := -Wall -Werror -std=gnu11 -I../include/
-TARGETS := $(shell ls * | grep -v Makefile | grep -v '.t' | sed -r 's/(.*)/\1.t/g')
+TARGETS := $(patsubst %.c,%.t,$(wildcard *.c))
+CFLAGS := -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os -I ../include/
 
 all: $(TARGETS)
+	prove --verbose .
 
-%.c.t: %.c
-	gcc $< $(CFLAGS) -o $@
+%.t: %.c
+	$(CC) $(CFLAGS) $< -o $@
+

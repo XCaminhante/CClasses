@@ -134,10 +134,12 @@ interface $Message {
   mutableptr(TYPEP,msg->_return)
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
-#define query_type(TYPE) \
+#define type_query_msg(TYPE) \
   (object $Message){type_id(TYPE),0}
 #define implements(CLASS,TYPE) \
-  handler(CLASS)(0,&query_type(TYPE))
+  handler(CLASS)(0,&type_query_msg(TYPE))
+#define send_type_query(OBJ,TYPE) \
+  send(OBJ,&type_query_msg(TYPE))
 //@-others
 //@-others
 #endif
