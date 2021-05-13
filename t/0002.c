@@ -123,7 +123,7 @@ define_class(SimpleCircle) {
 }
 //@-others
 //@-others
-//@+node:caminhante.20210513092746.1: ** void tap_assert (bool expr, char *msg)
+//@+node:caminhante.20210513092746.1: ** void tap_assert (bool expr, size_t test_num, char *msg)
 void tap_assert (bool expr, size_t test_num, char *msg) {
   printf("%s %ld %s\n", (expr ? "ok" : "not ok"), test_num, msg);
 }
