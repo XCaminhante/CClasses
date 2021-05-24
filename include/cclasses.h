@@ -17,6 +17,10 @@
 #include <sys/types.h>
 #include <unistd.h>
 //@+node:caminhante.20191029161928.49: ** Immutable states and basic object vocabulary
+//@+at
+//
+//@@c
+
 #define funcptr   *const
 #define dataptr   const*const
 #define iterptr   const*
@@ -28,15 +32,16 @@
 #define objptr(CLASS)         struct CLASS dataptr
 #define iterator(CLASS)       struct CLASS iterptr
 #define mutable(TYPE,OBJ)     (*(TYPE **) &OBJ)
-#define mutableptr(TYPEP,OBJ) (*(TYPEP *) OBJ)
-#define allocate(TYPE)        malloc(sizeof(TYPE))
+#define mutableptr(TYPEP,OBJ) ((TYPEP *) &(OBJ))
+#define allocate(NUM,TYPE)    (TYPE *)calloc(NUM,sizeof(TYPE))
 //@+node:caminhante.20191219184003.1: ** Dynamic objects model
 typedef objptr($Message) msg_t;
 typedef objptr($Class)   class_t;
 typedef objptr($Type)    type_t;
 typedef bool (funcptr $method) (class_t me, msg_t msg);
+typedef bool (* $class) (class_t me, msg_t msg);
 interface $Type {
-  $method _handler;
+  $class _handler;
 };
 interface $Class {
   object $Type _type;
@@ -126,12 +131,16 @@ interface $Message {
   ((msgptr(TYPE,METHOD))msg)
 #define cast_obj(CLASS) \
   ((objptr(CLASS))me->_obj)
-#define cast_ret(TYPEP) \
-  ((TYPEP iterptr)msg->_return)
+#define mutate_obj(VALUE) \
+  *mutableptr(typeof(VALUE),me->_obj) = VALUE;
 #define mutobjptr(CLASS) \
   mutable(struct CLASS, me->_obj)
+#define cast_ret(TYPEP) \
+  ((TYPEP iterptr)msg->_return)
 #define mutretptr(TYPEP) \
-  mutableptr(TYPEP,msg->_return)
+  ((TYPEP*)msg->_return)
+#define mutclassptr(CLASS) \
+  mutableptr($class, me->_type._handler)
 #define new(CLASS) \
   { {handler(CLASS)}, 0 }
 #define type_query_msg(TYPE) \

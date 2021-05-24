@@ -43,10 +43,8 @@
   _(area) \
   _(perim)
 define_type(Geometry);
-#define Geometry$area(_)
-define_message(Geometry,area);
-#define Geometry$perim(_)
-define_message(Geometry,perim);
+define_property(Geometry,area);
+define_property(Geometry,perim);
 //@+node:caminhante.20210513094125.1: *4* Rect
 #define Type$Rect(_) \
   _(new)
@@ -74,15 +72,15 @@ define_class(SimpleRect) {
   if (querying_type(Geometry)) { return true; }
   if (querying_type(Rect)) { return true; }
   if (is_method(Rect,new)) {
-    struct rect *r = allocate(struct rect);
+    struct rect *r = allocate(1,struct rect);
     r->w = cast_msg(Rect,new)->width;
     r->h = cast_msg(Rect,new)->height;
-    mutable(struct rect, me->_obj) = r;
+    mutate_obj(r);
     return true;
   }
   if (me && me->_obj != NULL) {
-    double *ret = (double*)msg->_return;
-    objptr(rect) r = (objptr(rect))me->_obj;
+    double *ret = mutretptr(double);
+    objptr(rect) r = cast_obj(rect);
     if (is_method(Geometry,area)) {
       *ret = r->w * r->h;
       return true;
@@ -102,14 +100,14 @@ define_class(SimpleCircle) {
   if (querying_type(Geometry)) { return true; }
   if (querying_type(Circle)) { return true; }
   if (is_method(Circle,new)) {
-    struct circle *c = allocate(struct circle);
+    struct circle *c = allocate(1,struct circle);
     c->r = cast_msg(Circle,new)->radius;
-    mutable(struct circle, me->_obj) = c;
+    mutate_obj(c);
     return true;
   }
   if (me && me->_obj != NULL) {
-    double *ret = (double*)msg->_return;
-    objptr(circle) c = (objptr(circle))me->_obj;
+    double *ret = mutretptr(double);
+    objptr(circle) c = cast_obj(circle);
     if (is_method(Geometry,area)) {
       *ret = 3.14 * c->r * c->r;
       return true;
