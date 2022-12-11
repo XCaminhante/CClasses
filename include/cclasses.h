@@ -8,7 +8,6 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include <stdbool.h>
-#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,38 +15,39 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
-//@+node:caminhante.20191029161928.49: ** Immutable states and basic object vocabulary
-//@+at
-//
-//@@c
-
+#include <search.h>
+#include <uchar.h>
+//@+node:caminhante.20191029161928.49: ** Data types and immutable states
 #define funcptr   *const
 #define dataptr   const*const
 #define iterptr   const*
 #define pointer   void dataptr
-#define string    char dataptr
 #define default   {0}
-#define interface     struct
-#define object        const struct
+#define definition      struct
+#define implementation  const struct
+#define object          const struct
+#define mut   *
 #define objptr(CLASS)         struct CLASS dataptr
 #define iterator(CLASS)       struct CLASS iterptr
-#define mutable(TYPE,OBJ)     (*(TYPE **) &OBJ)
-#define mutableptr(TYPEP,OBJ) ((TYPEP *) &(OBJ))
-#define allocate(NUM,TYPE)    (TYPE *)calloc(NUM,sizeof(TYPE))
+#define mutable(TYPE,OBJ)     (*(TYPE**) &OBJ)
+#define mutableptr(TYPEP,OBJ) ((TYPEP*) &(OBJ))
+#define allocate(NUM,TYPE)    (TYPE*)calloc(NUM,sizeof(TYPE))
+#define free(POINTER)         free((void*) POINTER)
+#define reallocate(PTR,NUM,TYPE)    (TYPE*)realloc(PTR,NUM*sizeof(TYPE))
 //@+node:caminhante.20191219184003.1: ** Dynamic objects model
 typedef objptr($Message) msg_t;
 typedef objptr($Class)   class_t;
 typedef objptr($Type)    type_t;
 typedef bool (funcptr $method) (class_t me, msg_t msg);
-typedef bool (* $class) (class_t me, msg_t msg);
-interface $Type {
+typedef bool (mut $class) (class_t me, msg_t msg);
+definition $Type {
   $class _handler;
 };
-interface $Class {
+definition $Class {
   object $Type _type;
   pointer _obj;
 };
-interface $Message {
+definition $Message {
   $method _subject;
   pointer _return;
 };
@@ -100,12 +100,12 @@ interface $Message {
 #define msgptr(TYPE,METHOD) \
   objptr(message(TYPE,METHOD))
 #define define_message(TYPE,METHOD) \
-  interface message(TYPE,METHOD) { \
+  struct message(TYPE,METHOD) { \
     $method _subject; \
     pointer _return; \
     method_ref(TYPE,METHOD)(struct_items2) }
 #define define_property(TYPE,METHOD) \
-  interface message(TYPE,METHOD) { \
+  struct message(TYPE,METHOD) { \
     $method _subject; \
     pointer _return; }
 #define my_handler(OBJ) \
@@ -141,7 +141,7 @@ interface $Message {
   ((TYPEP*)msg->_return)
 #define mutclassptr(CLASS) \
   mutableptr($class, me->_type._handler)
-#define new(CLASS) \
+#define empty_object(CLASS) \
   { {handler(CLASS)}, 0 }
 #define type_query_msg(TYPE) \
   (object $Message){type_id(TYPE),0}

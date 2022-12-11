@@ -2,12 +2,11 @@
 //@+node:caminhante.20210513092443.1: * @file 0002.c
 //@@language c
 //@@tabwidth -2
+//TEST 0002 simple geometry model, basic dynamic object operations
 //@+others
 //@+node:caminhante.20210513084915.1: ** /includes
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "cclasses.h"
+#include "sl.h"
 //@+node:caminhante.20200718232148.1: ** /project
 //@+at
 // type geometry interface {
@@ -121,15 +120,11 @@ define_class(SimpleCircle) {
 }
 //@-others
 //@-others
-//@+node:caminhante.20210513092746.1: ** void tap_assert (bool expr, size_t test_num, char *msg)
-void tap_assert (bool expr, size_t test_num, char *msg) {
-  printf("%s %ld %s\n", (expr ? "ok" : "not ok"), test_num, msg);
-}
 //@+node:caminhante.20210513092538.1: ** int main (argc, argv)
 int main (int argc, char** argv) {
-  size_t tests = 0;
-  object $Class a = new(SimpleRect);
-  object $Class b = new(SimpleCircle);
+  natural tests = 0;
+  object $Class a = empty_object(SimpleRect);
+  object $Class b = empty_object(SimpleCircle);
   double c = 0;
   // send_msg(OBJ,TYPE,METHOD,ARGS...)
   tap_assert( send_msg(a, Rect,new, .width=2.0, .height=3.0), ++tests, "a = new Rect(width=2.0, height=3.0)");

@@ -8,17 +8,15 @@
 <vnodes>
 <v t="caminhante.20200313155940.1"><vh>@settings</vh>
 <v t="caminhante.20200618180759.1"><vh>@command terminal-here @key=Alt-T</vh></v>
-<v t="caminhante.20200619162742.1"><vh>@command open-url-here @key=Ctrl-U</vh></v>
-<v t="caminhante.20200313155940.99"><vh>nodeActions</vh>
-<v t="caminhante.20200604232050.1"><vh>@cmd *</vh></v>
-<v t="caminhante.20200619161501.1"><vh>@download *</vh></v>
-<v t="caminhante.20200619155412.1"><vh>@duck *</vh></v>
-<v t="caminhante.20200927204806.1"><vh>@gcc|@gcc .* [X]</vh></v>
-<v t="caminhante.20200808174417.1"><vh>@js|@js .* [X]</vh></v>
-<v t="caminhante.20200912185313.1"><vh>@lua|@lua .* [X]</vh></v>
-<v t="caminhante.20200619213937.1"><vh>@node|@node .* [X]</vh></v>
-<v t="caminhante.20200618203115.1"><vh>@run|@run .* [X]</vh></v>
-<v t="caminhante.20200619154823.1"><vh>@web *</vh></v>
+<v t="caminhante.20221015222638.1"><vh>nodeActions</vh>
+<v t="caminhante.20221015222638.2"><vh>@cmd *</vh></v>
+<v t="caminhante.20221015222638.3"><vh>@cp *</vh></v>
+<v t="caminhante.20221015222638.4"><vh>@files Makefile</vh></v>
+<v t="caminhante.20221015222638.13"><vh>@mkdir *</vh></v>
+<v t="caminhante.20221015222638.15"><vh>@mv *</vh></v>
+<v t="caminhante.20221015222638.18"><vh>@rm *</vh></v>
+<v t="caminhante.20221015222638.19"><vh>@rmdir /*/</vh></v>
+<v t="caminhante.20221015222638.20"><vh>@run|@run .* [X]</vh></v>
 </v>
 </v>
 <v t="knoppix.20191029161928.1"><vh>Classes C</vh>
@@ -26,18 +24,21 @@
 <v t="caminhante.20210207103732.2"><vh>/.git/</vh></v>
 <v t="caminhante.20210207102455.6"><vh>/include/</vh>
 <v t="caminhante.20210207102516.1"><vh>@file cclasses.h</vh></v>
-<v t="caminhante.20210302085846.1"><vh>@file stl.h</vh></v>
+<v t="caminhante.20210302085846.1"><vh>@file sl.h</vh></v>
 </v>
 <v t="caminhante.20210207103732.1"><vh>/t/</vh>
 <v t="caminhante.20210513083852.1"><vh>@clean Makefile</vh></v>
 <v t="caminhante.20210513083845.1"><vh>@file 0001.c</vh></v>
 <v t="caminhante.20210513092443.1"><vh>@file 0002.c</vh></v>
+<v t="caminhante.20221202160253.1"><vh>@file 0003.c</vh></v>
 </v>
 <v t="caminhante.20210207102455.3"><vh>@auto README.md</vh></v>
 <v t="caminhante.20210513092228.1"><vh>@clean Makefile</vh></v>
 <v t="caminhante.20210207105028.1"><vh>@edit .gitignore</vh></v>
 <v t="caminhante.20210207102455.4"><vh>@edit LICENSE</vh></v>
+<v t="caminhante.20221015223242.1"><vh>cclasses.leo</vh></v>
 </v>
+<v t="caminhante.20221015223740.1"><vh>Ideas</vh>
 <v t="knoppix.20191029161928.50"><vh>File</vh>
 <v t="knoppix.20191029161928.51"><vh>File interface</vh></v>
 <v t="knoppix.20191029161928.52"><vh>File implementation</vh></v>
@@ -56,8 +57,8 @@
 <v t="knoppix.20191029161928.63"><vh>bool            same_key (objptr(ListMap) listmap, string key)</vh></v>
 <v t="knoppix.20191029161928.64"><vh>object ListMap  new (string key, pointer value, objptr(ListMap) next)</vh></v>
 <v t="knoppix.20191029161928.65"><vh>void            destroy (me(ListMap))</vh></v>
-<v t="knoppix.20191029161928.66"><vh>size_t          size (me(ListMap))</vh></v>
-<v t="knoppix.20191029161928.67"><vh>objptr(ListMap) nth (me(ListMap), size_t index)</vh></v>
+<v t="knoppix.20191029161928.66"><vh>natural         size (me(ListMap))</vh></v>
+<v t="knoppix.20191029161928.67"><vh>objptr(ListMap) nth (me(ListMap), natural index)</vh></v>
 <v t="knoppix.20191029161928.68"><vh>objptr(ListMap) lookup (me(ListMap), string key)</vh></v>
 <v t="knoppix.20191029161928.69"><vh>objptr(ListMap) has (me(ListMap), pointer value)</vh></v>
 <v t="knoppix.20191029161928.70"><vh>bool            append (me(ListMap), objptr(ListMap) target)</vh></v>
@@ -73,34 +74,112 @@
 <v t="knoppix.20191029161928.78"><vh>Stack implementation</vh>
 <v t="knoppix.20191029161928.79"><vh>object Stack  new (pointer value, objptr(Stack) next)</vh></v>
 <v t="knoppix.20191029161928.80"><vh>void          destroy (me(Stack))</vh></v>
-<v t="knoppix.20191029161928.81"><vh>size_t        size (me(Stack))</vh></v>
-<v t="knoppix.20191029161928.82"><vh>objptr(Stack) nth (me(Stack), size_t index)</vh></v>
+<v t="knoppix.20191029161928.81"><vh>natural       size (me(Stack))</vh></v>
+<v t="knoppix.20191029161928.82"><vh>objptr(Stack) nth (me(Stack), natural index)</vh></v>
 </v>
 <v t="knoppix.20191029161928.83"><vh>Stack tests</vh></v>
 </v>
-<v t="knoppix.20191029161928.84"><vh>String</vh>
-<v t="knoppix.20191029161928.85"><vh>String interface</vh></v>
-<v t="knoppix.20191029161928.86"><vh>String implementation</vh>
-<v t="knoppix.20191029161928.87"><vh>string new (string text)</vh></v>
-<v t="knoppix.20191029161928.88"><vh>void   destroy (string me)</vh></v>
-<v t="knoppix.20191029161928.89"><vh>size_t size (string me)</vh></v>
-<v t="knoppix.20191029161928.90"><vh>string append (string me, string more_text)</vh></v>
-<v t="knoppix.20191029161928.91"><vh>string prepend (string me, string more_text)</vh></v>
-<v t="knoppix.20191029161928.92"><vh>string first (string me, size_t bytes)</vh></v>
-<v t="knoppix.20191029161928.93"><vh>string last (string me, size_t bytes)</vh></v>
-<v t="knoppix.20191029161928.94"><vh>string indexOf (string me, const char ch)</vh></v>
-<v t="knoppix.20191029161928.95"><vh>size_t lastIndexOf (string me, const char ch)</vh></v>
-<v t="knoppix.20191029161928.96"><vh>string interpolate (string me, ...)</vh></v>
-</v>
-<v t="knoppix.20191029161928.97"><vh>String tests</vh></v>
 </v>
 </v>
 </vnodes>
 <tnodes>
 <t tx="caminhante.20200313155940.1"></t>
-<t tx="caminhante.20200313155940.99">@language python
+<t tx="caminhante.20200618180759.1">@language python
+import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+if c.isChanged(): c.save()
+path = c.getNodePath(c.p)
+
+execute('x-terminal-emulator --working-directory="'+path+'" --new-tab')
 </t>
-<t tx="caminhante.20200604232050.1">import subprocess
+<t tx="caminhante.20210207102455.6">@path include</t>
+<t tx="caminhante.20210207103732.1">@path t</t>
+<t tx="caminhante.20210207103732.2">@path .git</t>
+<t tx="caminhante.20210513083852.1">@language makefile
+@tabwidth 4
+TARGETS := $(patsubst %.c,%.t,$(wildcard *.c))
+CFLAGS := -std=gnu11 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os -I ../include/
+
+all: $(TARGETS)
+	prove --verbose .
+
+%.t: %.c ../include/cclasses.h ../include/sl.h
+	$(CC) $(CFLAGS) $&lt; -o $@
+
+</t>
+<t tx="caminhante.20210513092228.1">@language makefile
+@tabwidth 4
+CFLAGS := -std=gnu11 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os
+
+all: test
+
+test:
+	make -C t/
+
+.PHONY: test</t>
+<t tx="caminhante.20221015222638.1">@language python
+</t>
+<t tx="caminhante.20221015222638.13">import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+path = ''.join(c.p.h.split('@mkdir ')[1:])
+cmd = "mkdir -p -- '" + path + "'"
+g.es(c.p.h)
+execute(cmd)
+c.p.h = '/'+path+'/'
+c.p.b = '@path ' + path
+</t>
+<t tx="caminhante.20221015222638.15">import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+path = ''.join(c.p.h.split('@mv ')[1:])
+cmd = "mv -v -- '" + path + "' ./"
+g.es(c.p.h)
+g.es(execute(cmd))
+</t>
+<t tx="caminhante.20221015222638.18">import subprocess
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+path = c.getNodePath(c.p)
+g.os.chdir(path)
+
+filename = ''.join(c.p.h.split('@rm ')[1:])
+cmd = "rm -vf -- '" + filename + "'"
+g.es(c.p.h)
+g.es(execute(cmd))
+</t>
+<t tx="caminhante.20221015222638.19">import subprocess
+import shutil
+
+def execute (cmd):
+    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
+
+ps = c.p.parents()
+for par in ps:
+    break
+path = c.getNodePath(par)
+g.os.chdir(path)
+
+path = ''.join(c.p.h.split('@rmdir /')[1:]).split('/')[0]
+shutil.rmtree(path)
+c.p.b = 'deleted'
+</t>
+<t tx="caminhante.20221015222638.2">import subprocess
 
 def execute (cmd):
     return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
@@ -117,18 +196,7 @@ c.p.b += execute(command)
 
 c.save()
 </t>
-<t tx="caminhante.20200618180759.1">@language python
-import subprocess
-
-def execute (cmd):
-    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
-
-if c.isChanged(): c.save()
-path = c.getNodePath(c.p)
-
-execute('terminator --working-directory="'+path+'" --new-tab')
-</t>
-<t tx="caminhante.20200618203115.1">@language python
+<t tx="caminhante.20221015222638.20">@language python
 import subprocess
 
 # def getpath (p):
@@ -173,44 +241,29 @@ command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | bash\n"+code+'\nEOFEOFEOFEOFEOFEOF
 
 cpc = c.p.copy()
 novoNo = cpc.insertAsLastChild()
-novoNo.h = c.p.h
+novoNo.h = c.p.h + ' ['+code+']'
 novoNo.b = execute(command)
 c.redraw()
 
 c.save()
 w.setSelectionRange(s1,s2)
 </t>
-<t tx="caminhante.20200619154823.1">import subprocess
+<t tx="caminhante.20221015222638.3">import subprocess
 
 def execute (cmd):
     return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
 
-if c.isChanged(): c.save()
+path = c.getNodePath(c.p)
+g.os.chdir(path)
 
-url = ''.join(c.p.h.split('@web ')[1:])
-command = 'lynx -image_links -dump "'+url+'"'
+path = ''.join(c.p.h.split('@cp ')[1:])
+cmd = "cp -v -- '" + path + "' ./"
 g.es(c.p.h)
-c.p.b = execute(command)
-
-c.save()
+g.es(execute(cmd))
 </t>
-<t tx="caminhante.20200619155412.1">import subprocess
-import urllib.parse
-
-def execute (cmd):
-    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
-
-if c.isChanged(): c.save()
-
-search = ''.join(c.p.h.split('@duck ')[1:])
-searchenc = urllib.parse.quote(search)
-command = 'lynx -dump "https://duckduckgo.com/html/?q='+searchenc+'&amp;t=seamonkey"'
-g.es(c.p.h)
-c.p.b = execute(command)
-
-c.save()
-</t>
-<t tx="caminhante.20200619161501.1">import subprocess
+<t tx="caminhante.20221015222638.4">@language python
+import subprocess
+import re
 
 def execute (cmd):
     return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
@@ -219,124 +272,15 @@ if c.isChanged(): c.save()
 
 path = c.getNodePath(c.p)
 g.os.chdir(path)
-
-url = ''.join(c.p.h.split('@download ')[1:])
-command = 'wget --no-config --continue --no-verbose --adjust-extension --tries=3 --content-on-error "'+url+'"'
-g.es(c.p.h)
-c.p.b += execute(command)
-
-c.save()
-</t>
-<t tx="caminhante.20200619162742.1">@language python
-# if c.isChanged(): c.save()
-
-w = c.frame.body.wrapper
-b = c.p.b
-i,j = w.getSelectionRange()
-
-selecao = b[i:j]
 
 cpc = c.p.copy()
-novoNo = cpc.insertAsLastChild()
-c.setHeadString(novoNo, '@web '+selecao)
-c.selectPosition(novoNo)
+novoNo = cpc.insertAfter()
+novoNo.h = 'make return'
+novoNo.b = execute('make')
 c.redraw()
 </t>
-<t tx="caminhante.20200619213937.1">import subprocess
-import re
-
-def execute (cmd):
-    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
-
-path = c.getNodePath(c.p)
-g.os.chdir(path)
-
-code = re.sub(r'^#|\n+#', '\n///', g.getScript(c,c.p))
-
-g.es(c.p.h)
-
-command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | node\n"+code+'\nEOFEOFEOFEOFEOFEOF'
-
-c.p.b += '\n' + execute(command)
-</t>
-<t tx="caminhante.20200808174417.1">import subprocess
-import re
-
-def execute (cmd):
-    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
-
-path = c.getNodePath(c.p)
-g.os.chdir(path)
-
-code = re.sub(r'^#|\n+#', '\n///', g.getScript(c,c.p))
-
-g.es(c.p.h)
-
-command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | js\n"+code+'\nEOFEOFEOFEOFEOFEOF'
-
-c.p.b += '\n' + execute(command)
-</t>
-<t tx="caminhante.20200912185313.1">import subprocess
-import re
-
-def execute (cmd):
-    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
-
-path = c.getNodePath(c.p)
-g.os.chdir(path)
-
-code = re.sub(r'^#|\n+#', '\n---', g.getScript(c,c.p))
-
-g.es(c.p.h)
-
-command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | lua\n"+code+'\nEOFEOFEOFEOFEOFEOF'
-
-c.p.b += '\n' + execute(command)
-</t>
-<t tx="caminhante.20200927204806.1">import subprocess
-import re
-
-def execute (cmd):
-    return subprocess.run(cmd,shell=True,universal_newlines=True,stderr=subprocess.STDOUT,stdout=subprocess.PIPE).stdout
-
-path = c.getNodePath(c.p)
-g.os.chdir(path)
-
-code = re.sub(r'^#@|\n+#@', '\n///', g.getScript(c,c.p))
-args = ''.join(c.p.h.split('@gcc ')[1:])
-
-g.es(c.p.h)
-
-command = "cat &lt;&lt;'EOFEOFEOFEOFEOFEOF' | gcc -xc - -Wall -Werror -std=gnu11 -c -o /dev/null \n"+code+'\nEOFEOFEOFEOFEOFEOF'
-
-c.p.b += '\n' + execute(command)
-# g.es(command)
-</t>
-<t tx="caminhante.20210207102455.6">@path include</t>
-<t tx="caminhante.20210207103732.1">@path t</t>
-<t tx="caminhante.20210207103732.2">@path .git</t>
-<t tx="caminhante.20210513083852.1">@language makefile
-@tabwidth 4
-TARGETS := $(patsubst %.c,%.t,$(wildcard *.c))
-CFLAGS := -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os -I ../include/
-
-all: $(TARGETS)
-	prove --verbose .
-
-%.t: %.c
-	$(CC) $(CFLAGS) $&lt; -o $@
-
-</t>
-<t tx="caminhante.20210513092228.1">@language makefile
-@tabwidth 4
-CFLAGS := -std=gnu99 -Wall -Werror -Wno-error=unused-function -Wfatal-errors -D_GNU_SOURCE -flto -Os
-
-all: test
-
-test:
-	make -C t/
-
-.PHONY: test</t>
+<t tx="caminhante.20221015223242.1"></t>
+<t tx="caminhante.20221015223740.1"></t>
 <t tx="knoppix.20191029161928.1">@language c
 @tabwidth -2</t>
 <t tx="knoppix.20191029161928.2"></t>
@@ -352,9 +296,9 @@ test:
 
 interface $File {
   object File (funcptr new) (objptr(FilePath) filepath, $File$AccessMode modes);
-  string      (funcptr read) (me(File), size_t bytes);
+  string      (funcptr read) (me(File), natural bytes);
   bool        (funcptr write) (me(File), string text);
-  size_t      (funcptr size) (me(File));
+  natural     (funcptr size) (me(File));
 };
 
 struct File {
@@ -411,28 +355,28 @@ extern class $File File;</t>
 <t tx="knoppix.20191029161928.61">interface $ListMap {
   // WARN This function does not prevent the creation of cyclical lists!
   object ListMap  (funcptr new) (string key, pointer value, objptr(ListMap) next);
-  // [ likely valid ListMap object -&gt; deallocates its `-&gt;key` and `-&gt;value` entries | &lt;Identity&gt; ]
+  // [ ListMap object -&gt; deallocates its `-&gt;key` and `-&gt;value` entries | &lt;Identity&gt; ]
   void            (funcptr destroy) (me(ListMap));
-  // [ likely valid ListMap chain -&gt; number of elements in the chain | 0 ]
-  size_t          (funcptr size) (me(ListMap));
-  // [ likely valid ListMap chain -&gt; nth object at the chain | 0 ]
-  objptr(ListMap) (funcptr nth) (me(ListMap), size_t index);
-  // [ likely valid ListMap chain and an ListMap entry has this key
+  // [ ListMap chain -&gt; number of elements in the chain | 0 ]
+  natural         (funcptr size) (me(ListMap));
+  // [ ListMap chain -&gt; nth object at the chain | 0 ]
+  objptr(ListMap) (funcptr nth) (me(ListMap), natural index);
+  // [ ListMap chain and an ListMap entry has this key
   // (a key different from a empty string) -&gt;
     // this ListMap entry | 0 ]
   objptr(ListMap) (funcptr lookup) (me(ListMap), string key);
-  // [ likely valid ListMap chain and an ListMap entry has this value
+  // [ ListMap chain and an ListMap entry has this value
   // (a value different from 0) -&gt;
     // this ListMap entry | 0 ]
   objptr(ListMap) (funcptr has) (me(ListMap), pointer value);
-  // [ likely valid ListMap objects `me` and `target` -&gt; `target-&gt;next` points to `me` | 0 ]
+  // [ ListMap objects `me` and `target` -&gt; `target-&gt;next` points to `me` | 0 ]
   // WARN This function does not prevent the creation of cyclical lists!
   bool            (funcptr append) (me(ListMap), objptr(ListMap) target);
-  // [ likely valid ListMap chain and an ListMap entry has this key
+  // [ ListMap chain and an ListMap entry has this key
   // (a key different from a empty string) -&gt;
     // this ListMap entry removed from the chain, returns this ListMap entry | 0 ]
   objptr(ListMap) (funcptr unset) (iterator(ListMap) *me, string key);
-  // [ likely valid ListMap chains `me` and `target` -&gt; `target`'s tail `-&gt;next` points to `me` | 0 ]
+  // [ ListMap chains `me` and `target` -&gt; `target`'s tail `-&gt;next` points to `me` | 0 ]
   // WARN This function does not prevent the creation of cyclical lists!
   bool            (funcptr unite) (me(ListMap), objptr(ListMap) target);
 };
@@ -474,17 +418,17 @@ static object ListMap ListMap_new (string key, pointer value, objptr(ListMap) ne
   if (me-&gt;value) free((void*)me-&gt;value);
 }
 </t>
-<t tx="knoppix.20191029161928.66">static size_t ListMap_size (me(ListMap)) {
+<t tx="knoppix.20191029161928.66">static natural ListMap_size (me(ListMap)) {
   if (me == 0) return 0;
   iterator(ListMap) p = me;
-  size_t count = 1;
+  natural count = 1;
   while (p-&gt;next) {
     count++; p = p-&gt;next; }
   return count;
 }
 </t>
 <t tx="knoppix.20191029161928.67">// Nth element at list, or 0 if non-existent
-static objptr(ListMap) ListMap_nth (me(ListMap), size_t index) {
+static objptr(ListMap) ListMap_nth (me(ListMap), natural index) {
   if (index &lt; 1) return 0;
   iterator(ListMap) p = me;
   while (p &amp;&amp; --index) {
@@ -600,12 +544,12 @@ static void ListMap_tests () {
 <t tx="knoppix.20191029161928.76"></t>
 <t tx="knoppix.20191029161928.77">interface $Stack {
   object Stack  (funcptr new)     (pointer data, objptr(Stack) next);
-  // [ likely valid Stack object -&gt; deallocates its `-&gt;value` entry | &lt;Identity&gt; ]
+  // [ Stack object -&gt; deallocates its `-&gt;value` entry | &lt;Identity&gt; ]
   void          (funcptr destroy) (me(Stack));
-  // [ likely valid Stack chain -&gt; number of elements in the chain | 0 ]
-  size_t        (funcptr size)    (me(Stack));
-  // [ likely valid Stack chain -&gt; nth object at the chain | 0 ]
-  objptr(Stack) (funcptr nth)     (me(Stack), size_t index);
+  // [ Stack chain -&gt; number of elements in the chain | 0 ]
+  natural       (funcptr size)    (me(Stack));
+  // [ Stack chain -&gt; nth object at the chain | 0 ]
+  objptr(Stack) (funcptr nth)     (me(Stack), natural index);
 };
 
 struct Stack {
@@ -630,15 +574,15 @@ class $Stack Stack = {
   if (me == 0) return;
   if (me-&gt;value) free((void*)me-&gt;value);
 }</t>
-<t tx="knoppix.20191029161928.81">static size_t Stack_size (me(Stack)) {
+<t tx="knoppix.20191029161928.81">static natural Stack_size (me(Stack)) {
   if (me == 0) return 0;
   iterator(Stack) p = me;
-  size_t count = 1;
+  natural count = 1;
   while (p-&gt;next) {
     count++; p = p-&gt;next; }
   return count;
 }</t>
-<t tx="knoppix.20191029161928.82">static objptr(Stack) Stack_nth (me(Stack), size_t index) {
+<t tx="knoppix.20191029161928.82">static objptr(Stack) Stack_nth (me(Stack), natural index) {
   if (index &lt; 1) return 0;
   iterator(Stack) p = me;
   while (p &amp;&amp; --index) {
@@ -655,149 +599,5 @@ class $Stack Stack = {
   printf("%p %p %p\n",Stack.nth(&amp;s2,1), &amp;s2, &amp;s1);
   printf("%p %p %p\n",Stack.nth(&amp;s2,0), &amp;s2, &amp;s1);
 }</t>
-<t tx="knoppix.20191029161928.84"></t>
-<t tx="knoppix.20191029161928.85">interface $String {
-  // [ likely valid string `text` -&gt; copy of `text` | 0 ]
-  string (funcptr new) (string text);
-  // [ `me` != 0 -&gt; deallocates `me` | &lt;Identity&gt; ]
-  void   (funcptr destroy) (string me);
-  // [ likely valid string `me` -&gt; number of bytes in `me` | 0 ]
-  size_t (funcptr size) (string me);
-  // [ likely valid string `me` and `more_text` -&gt;
-    // new string with `more_text` concatenated at the end of `me` ]
-  string (funcptr append) (string me, string more_text);
-  // [ likely valid string `me` and `more_text` -&gt;
-    // new string with `more_text` concatenated at the start of `me` ]
-  string (funcptr prepend) (string me, string more_text);
-  // [ likely valid string `me` and `bytes` &gt; 1 -&gt; new string with a copy of the first `bytes` of `me`'s chars on it ]
-  string (funcptr first) (string me, size_t bytes);
-  // [ likely valid string `me` and `bytes` &gt; 1 -&gt; new string with a copy of the last `bytes` of `me`'s chars on it ]
-  string (funcptr last) (string me, size_t bytes);
-  // [ likely valid string `me` and `ch` -&gt; first position at `me` where occurs a char with the same value of `ch` ]
-  size_t (funcptr indexOf) (string me, const char ch);
-  // [ likely valid string `me` and `ch` -&gt; last position at `me` where occurs a char with the same value of `ch` ]
-  size_t (funcptr lastIndexOf) (string me, const char ch);
-  // [ likely valid string `me` and variadic sprintf-like arguments -&gt; a new string with sprintf-like arguments interpolated on it ]
-  // Example: String.interpolate("%d %d\n",1,2) -&gt; "1 2\n"
-  string (funcptr interpolate) (string me, ...);
-};
-
-extern class $String String;
-</t>
-<t tx="knoppix.20191029161928.86">@others
-
-class $String String = {
-  String_new,
-  String_destroy,
-  String_size,
-  String_append,
-  String_prepend,
-  String_first,
-  String_last,
-  String_indexOf,
-  String_lastIndexOf,
-  String_interpolate,
-};
-</t>
-<t tx="knoppix.20191029161928.87">static string String_new (string text) {
-  if (text == 0) return 0;
-  size_t txtlen = strlen(text);
-  char *newstr = malloc(txtlen+1);
-  if (newstr == 0) return 0;
-  strncpy(newstr,text,txtlen);
-  return newstr;
-}
-</t>
-<t tx="knoppix.20191029161928.88">static void String_destroy (string me) {
-  if (me != 0) free((char*)me);
-}
-</t>
-<t tx="knoppix.20191029161928.89">static size_t String_size (string me) {
-  if (me == 0) return 0;
-  return strlen(me);
-}
-</t>
-<t tx="knoppix.20191029161928.90">static string String_append (string me, string more_text) {
-  if (me == 0) return 0;
-  if (more_text == 0) return 0;
-  size_t melen = strlen(me), morelen = strlen(more_text);
-  char *newstr = malloc(melen+morelen+1);
-  if (newstr == 0) return 0;
-  strncpy(newstr,me,melen);
-  strncpy(newstr+melen,more_text,morelen);
-  return newstr;
-}
-</t>
-<t tx="knoppix.20191029161928.91">static string String_prepend (string me, string more_text) {
-  if (me == 0) return 0;
-  if (more_text == 0) return 0;
-  return String_append(more_text,me);
-}
-</t>
-<t tx="knoppix.20191029161928.92">static string String_first (string me, size_t bytes) {
-  if (me == 0) return 0;
-  if (bytes &lt; 1) return 0;
-  size_t melen = strlen(me);
-  if (bytes &gt;= melen) return String_new(me);
-  char *newstr = malloc(bytes+1);
-  if (newstr == 0) return 0;
-  strncpy(newstr,me,bytes);
-  newstr[bytes] = '\0';
-  return newstr;
-}
-</t>
-<t tx="knoppix.20191029161928.93">static string String_last (string me, size_t bytes) {
-  if (me == 0) return 0;
-  if (bytes &lt; 1) return 0;
-  size_t melen = strlen(me);
-  if (bytes &gt;= melen) return String_new(me);
-  char *newstr = malloc(bytes+1);
-  if (newstr == 0) return 0;
-  strncpy(newstr,me+melen-bytes,bytes);
-  newstr[bytes] = '\0';
-  return newstr;
-}
-</t>
-<t tx="knoppix.20191029161928.94">static size_t String_indexOf (string me, const char ch) {
-  if (me == 0) return 0;
-  char *pos = strchr(me,ch);
-  if (pos == 0) return 0;
-  return (size_t) (pos-me);
-}
-</t>
-<t tx="knoppix.20191029161928.95">static size_t String_lastIndexOf (string me, const char ch) {
-  if (me == 0) return 0;
-  char *pos = strrchr(me,ch);
-  if (pos == 0) return 0;
-  return (size_t) (pos-me);
-}
-</t>
-<t tx="knoppix.20191029161928.96">static string String_interpolate (string me, ...) {
-  if (me == 0) return 0;
-  va_list args;
-  va_start(args,me);
-  size_t needed = vsnprintf(0,0,me,args);
-  if (needed == 0) return 0;
-  char *newbuf = malloc(needed+1);
-  if (newbuf == 0) return 0;
-  va_start(args,me);
-  vsprintf(newbuf,me,args);
-  va_end(args);
-  return newbuf;
-}
-</t>
-<t tx="knoppix.20191029161928.97">static void String_tests () {
-  string a = String.interpolate("* %d %s",1,"teste");
-  puts(a);
-  printf("%d\n",String.indexOf(a,'s'));
-  printf("%d\n",String.lastIndexOf(a,'t'));
-  string b = String.first(a,3);
-  puts(b);
-  string c = String.last(a,3);
-  puts(c);
-  string d = String.prepend(b,c);
-  puts(d);
-}
-</t>
 </tnodes>
 </leo_file>
